@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>奥拓智能机器人后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="js/jsonview/jquery.jsonview.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jsonview/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/calender/laydate.dev.js"></script>
+</head>
+<body>
+	<div class="wapper_welcome">
+		<span class="fl"><i class="icon-home""></i>欢迎进入奥拓智能机器人后台管理系统</span>
+		<div class="fr wapper_user">
+			<span><span>您好， </span><span class="user_name"></span>&nbsp&nbsp<i class="icon-user"></i></span>
+			<a href="javascript:;" class="user_quit">退出</a>
+		</div>
+	</div>
+	<div class="modify_container">
+		<div class="modify_list clearfix">
+			<label>用户名：</label>
+			<input type="text" id="user" disabled="disabled">
+		</div>
+		<div class="modify_list clearfix">
+			<label>密码：</label>
+			<input type="password" id="oldPwd">
+		</div>
+		<div class="modify_list clearfix">
+			<label>新密码：</label>
+			<input type="password" id="newPwd">
+		</div>
+		<input type="button" value="确认修改" id="modify_submit">
+		<a href="javascript:;" class="fr back_to_index">返回</a>
+	</div>
+<script>
+/* 	var host="www.robotcheers.com"; */
+	var host="172.16.210.121"
+	var localHost=window.location.href;
+	var regHost=/\/\/(.*?)\//;
+	//var host=localHost.match(regHost)[1];
+	if(window.localStorage.user==undefined){
+		var layerIndex=layer.alert("未登录，请先登陆！",{
+		  	icon:5,
+		  	btn:['确定'],
+		  	yes:function(index, layero){
+		  		window.location.href="login.html";
+		  		layer.close(layerIndex);
+		  	}
+		})
+	}else{
+		var user=window.localStorage.user;
+	}
+
+	$("#modify_submit").click(function(){
+		checkInput();
+	})
+
+	//获取用户名 
+	var userName=window.localStorage.user;
+	$(".user_name").text(userName);
+
+	//退出 
+	$(".user_quit").click(function(){
+		$.ajax({
+			cache:false,
+			type:'GET',
+			url:"https://"+host+"/signalmaster/rest/admin/logout",
+			success:function(result){
+				console.log(result)
+				if(result.code==0){
+					window.location.href="login.html";
+					window.localStorage.clear();
+				}else{
+					layer.alert(result.code)
+				}
+			},
+			error:function(result){
+				alert('服务器异常！');
+			}
+		})
+	})
+
+	$(".back_to_index").click(function(){
+		window.location.href=window.localStorage.prevPage;
+	})
+
+	$("#user").val(userName);
+
+	function checkInput(){
+		var iptPwd=$("#oldPwd").val();
+		var iptNewPwd=$("#newPwd").val();
+
+		if(iptPwd==""){
+			layer.tips("旧密码不能为空！","#oldPwd");
+			$("#oldPwd").val('');
+			$("#oldPwd").focus();
+			return false;
+		}
+
+		if(iptNewPwd==""){
+			layer.tips("新密码不能为空！","#newPwd");
+			$("#newPwd").val('');
+			$("#newPwd").focus();
+			return false;
+		}
+		$.ajax({
+			cache:false,
+			type:'GET',
+			url:"/signalmaster/rest/reset_password/"+userName+"/"+iptPwd+"/"+iptNewPwd,
+			success:function(result){
+				if(result.message!="OK"){
+					layer.alert(result.message);
+				}else{
+					window.localStorage.clear();
+					layer.alert("修改成功，返回登录页！",{
+						icon:1,
+						yes:function(){
+							window.location.href="login.html"
+						}
+					})
+				}	
+			},
+			error:function(result){
+				alert("服务器异常！")
+			}
+		})
+
+		return true;
+	}
+
+// 	移除行首和行尾空格 
+	function trim(str){
+		return str.replace(/(^\s+)|(\s+$)/g,"");
+	}
+</script>
+</body>
+</html>

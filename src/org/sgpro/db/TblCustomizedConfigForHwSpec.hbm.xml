@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblCustomizedConfigForHwSpec" table="TBL_CUSTOMIZED_CONFIG_FOR_HW_SPEC" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblCustomizedConfigForHwSpecId">
+            <key-property name="hwSpecId" type="long">
+                <column name="HW_SPEC_ID" />
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="NAME" length="256" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entConfig" class="org.sgpro.db.EntConfig" update="false" insert="false" fetch="select">
+            <column name="NAME" length="256" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entHwSpec" class="org.sgpro.db.EntHwSpec" update="false" insert="false" fetch="select">
+            <column name="HW_SPEC_ID" not-null="true" />
+        </many-to-one>
+        <property name="value" type="string">
+            <column name="VALUE" length="1073741823" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="128" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblRequestRecommend" table="TBL_REQUEST_RECOMMEND" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblRequestRecommendId">
+            <key-property name="requestId" type="string">
+                <column name="REQUEST_ID" length="120" />
+            </key-property>
+            <key-property name="recommendFlowId" type="java.lang.Long">
+                <column name="RECOMMEND_FLOW_ID" />
+            </key-property>
+            <key-property name="matchedDegree" type="java.lang.Long">
+                <column name="MATCHED_DEGREE" />
+            </key-property>
+            <key-property name="granularity" type="java.lang.Long">
+                <column name="GRANULARITY" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

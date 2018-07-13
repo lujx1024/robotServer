@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewBizMenutree" table="VIEW_BIZ_MENUTREE" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewBizMenutreeId">
+            <key-property name="menuEntryName" type="string">
+                <column name="MENU_ENTRY_NAME" length="50" />
+            </key-property>
+            <key-property name="menuId" type="long">
+                <column name="MENU_ID" />
+            </key-property>
+            <key-property name="menuLabel" type="string">
+                <column name="MENU_LABEL" length="500" />
+            </key-property>
+            <key-property name="menuExtra" type="string">
+                <column name="MENU_EXTRA" length="1073741823" />
+            </key-property>
+            <key-property name="parentMenuId" type="java.lang.Long">
+                <column name="PARENT_MENU_ID" />
+            </key-property>
+            <key-property name="menuSeq" type="long">
+                <column name="MENU_SEQ" />
+            </key-property>
+            <key-property name="action" type="string">
+                <column name="ACTION" length="200" />
+            </key-property>
+            <key-property name="actionUri" type="string">
+                <column name="ACTION_URI" length="4000" />
+            </key-property>
+            <key-property name="actionType" type="string">
+                <column name="ACTION_TYPE" length="1073741823" />
+            </key-property>
+            <key-property name="actionExtra" type="string">
+                <column name="ACTION_EXTRA" length="50" />
+            </key-property>
+            <key-property name="actionPackageName" type="string">
+                <column name="ACTION_PACKAGE_NAME" length="4000" />
+            </key-property>
+            <key-property name="actionClassName" type="string">
+                <column name="ACTION_CLASS_NAME" length="256" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

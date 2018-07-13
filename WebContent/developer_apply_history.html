@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>奥拓智能机器人后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="js/jsonview/jquery.jsonview.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jsonview/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/calender/laydate.dev.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="developerjs/apply_history.js"></script>
+</head>
+<body>
+	<div style="position:relative">
+		<div class="sidebar">
+			<div class="menu_bar">
+				<i class="icon-reorder"></i>
+			</div>
+			<ul class="menu">
+				<li><a href="setConfig_all.html"><i class="icon-code" style="color:#2aaf00;"></i><span>开发者配置</span></a></li>
+				<li><a href="config_manage.html"><i class="icon-cogs" style="color:#f70019"></i><span>配置项管理</span></a></li>
+				<li><a href="developer_apply.html" class="current"><i class="icon-wrench" style="color:#ffb914;"></i><span>应用管理</span></a></li>
+			</ul>
+		</div>
+		<div class="wapper_content">
+			<div class="table_bar">版本历史</div>
+			<div class="table_container">
+				<a href="developer_apply.html" class="wapper_backUp"><i class="icon-angle-left"></i>返回上一级</a>
+				<section class="addsearch_box clearfix">
+					<input id="addBtn_history" type="button" value="新 增">
+					<div class="search_box">
+						<input type="text" placeholder="起始时间" id="start_time"> <span class="fl" style="height:36px;line-height:36px;color:#333;margin:0 5px;">至</span><input type="text" placeholder="结束时间" id="end_time">
+						<input type="text" placeholder="版本描述 / 版本名" id="search_ipt"><label id="search_text">搜 索</label>
+					</div>
+				</section>
+				<section class="table_box">
+					<div class="table_content">
+						<table id="table"></table>
+					</div>
+					<div class="clearfix">
+						<span class="counts fl">总计<span class="counts_page"></span>页，<span class="counts_num"></span>条数据</span>
+						<div class="pageBox fr"></div> 
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

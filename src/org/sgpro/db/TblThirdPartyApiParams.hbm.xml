@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblThirdPartyApiParams" table="TBL_THIRD_PARTY_API_PARAMS" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblThirdPartyApiParamsId">
+            <key-property name="thirdPartyApiId" type="long">
+                <column name="THIRD_PARTY_API_ID" />
+            </key-property>
+            <key-property name="paramName" type="string">
+                <column name="PARAM_NAME" length="50" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entThirdPartyApi" class="org.sgpro.db.EntThirdPartyApi" update="false" insert="false" fetch="select">
+            <column name="THIRD_PARTY_API_ID" not-null="true" />
+        </many-to-one>
+        <property name="header0Body1" type="boolean">
+            <column name="HEADER_0_BODY_1" not-null="true" />
+        </property>
+        <property name="optional" type="boolean">
+            <column name="OPTIONAL" not-null="true" />
+        </property>
+        <property name="defaultValue" type="string">
+            <column name="DEFAULT_VALUE" length="500" />
+        </property>
+        <set name="tblThirdPartyApiParamsValues" table="TBL_THIRD_PARTY_API_PARAMS_VALUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THIRD_PARTY_API_ID" not-null="true" />
+                <column name="THIRD_PARTY_API_PARAM_NAME" length="50" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblThirdPartyApiParamsValue" />
+        </set>
+    </class>
+</hibernate-mapping>

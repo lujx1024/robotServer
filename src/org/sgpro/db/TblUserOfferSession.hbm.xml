@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblUserOfferSession" table="TBL_USER_OFFER_SESSION" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblUserOfferSessionId">
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="offerUserId" type="long">
+                <column name="OFFER_USER_ID" />
+            </key-property>
+            <key-property name="answerUserId" type="long">
+                <column name="ANSWER_USER_ID" />
+            </key-property>
+            <key-property name="offerDatetime" type="timestamp">
+                <column name="OFFER_DATETIME" length="23" />
+            </key-property>
+            <key-property name="connectedDatetime" type="timestamp">
+                <column name="CONNECTED_DATETIME" length="23" />
+            </key-property>
+            <key-property name="disconnectedDatetime" type="timestamp">
+                <column name="DISCONNECTED_DATETIME" length="23" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntRobotApp" table="ENT_ROBOT_APP" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="packageName" type="string">
+            <column name="PACKAGE_NAME" length="100" not-null="true" unique="true" />
+        </property>
+        <property name="appName" type="string">
+            <column name="APP_NAME" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="exclusive" type="boolean">
+            <column name="EXCLUSIVE" not-null="true" />
+        </property>
+        <property name="enable" type="boolean">
+            <column name="ENABLE" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="500" not-null="true" />
+        </property>
+        <set name="entUserGroups" table="TBL_ROBOT_APP_EXCLUSIVE" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="ROBOT_APP_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="org.sgpro.db.EntUserGroup">
+                <column name="USER_GROUP_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="entUserGroups_1" table="TBL_ROBOT_APP_EXCLUDE" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="ROBOT_APP_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="org.sgpro.db.EntUserGroup">
+                <column name="USER_GROUP_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="tblRobotAppVersions" table="TBL_ROBOT_APP_VERSION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROBOT_APP_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblRobotAppVersion" />
+        </set>
+    </class>
+</hibernate-mapping>

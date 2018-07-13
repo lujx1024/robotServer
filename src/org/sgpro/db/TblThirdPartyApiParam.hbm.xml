@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblThirdPartyApiParam" table="TBL_THIRD_PARTY_API_PARAM" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblThirdPartyApiParamId">
+            <key-property name="thirdPartyApiId" type="long">
+                <column name="THIRD_PARTY_API_ID" />
+            </key-property>
+            <key-property name="thirdPartyApiParamId" type="long">
+                <column name="THIRD_PARTY_API_PARAM_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entThirdPartyApiParam" class="org.sgpro.db.EntThirdPartyApiParam" update="false" insert="false" fetch="select">
+            <column name="THIRD_PARTY_API_PARAM_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entThirdPartyApi" class="org.sgpro.db.EntThirdPartyApi" update="false" insert="false" fetch="select">
+            <column name="THIRD_PARTY_API_ID" not-null="true" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="1024" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblBizMenutree" table="TBL_BIZ_MENUTREE" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblBizMenutree" class="org.sgpro.db.TblBizMenutree" fetch="select">
+            <column name="PARENT_ID" />
+        </many-to-one>
+        <many-to-one name="tblBizMenuitemAction" class="org.sgpro.db.TblBizMenuitemAction" fetch="select">
+            <column name="MENUITEM_ACTION_ID" />
+        </many-to-one>
+        <property name="label" type="string">
+            <column name="LABEL" length="500" not-null="true" />
+        </property>
+        <property name="extra" type="string">
+            <column name="EXTRA" length="1073741823" />
+        </property>
+        <property name="ownerMenu" type="string">
+            <column name="OWNER_MENU" length="50" not-null="true" />
+        </property>
+        <property name="seq" type="long">
+            <column name="SEQ" not-null="true" />
+        </property>
+        <set name="tblBizMenutrees" table="TBL_BIZ_MENUTREE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PARENT_ID" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblBizMenutree" />
+        </set>
+    </class>
+</hibernate-mapping>

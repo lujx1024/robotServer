@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewVoiceGroup" table="VIEW_VOICE_GROUP" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewVoiceGroupId">
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="voiceGroupId" type="java.lang.Long">
+                <column name="VOICE_GROUP_ID" />
+            </key-property>
+            <key-property name="voiceName" type="string">
+                <column name="VOICE_NAME" length="50" />
+            </key-property>
+            <key-property name="voicePath" type="string">
+                <column name="VOICE_PATH" length="4000" />
+            </key-property>
+            <key-property name="voiceText" type="string">
+                <column name="VOICE_TEXT" length="4000" />
+            </key-property>
+            <key-property name="voiceCat" type="string">
+                <column name="VOICE_CAT" length="50" />
+            </key-property>
+            <key-property name="voiceDescription" type="string">
+                <column name="VOICE_DESCRIPTION" length="1024" />
+            </key-property>
+            <key-property name="voiceCommand" type="java.lang.Long">
+                <column name="VOICE_COMMAND" />
+            </key-property>
+            <key-property name="voiceCommandParam" type="string">
+                <column name="VOICE_COMMAND_PARAM" length="1073741823" />
+            </key-property>
+            <key-property name="voiceThirdPartyApiName" type="string">
+                <column name="VOICE_THIRD_PARTY_API_NAME" length="50" />
+            </key-property>
+            <key-property name="voiceThirdPartyApiMethod" type="string">
+                <column name="VOICE_THIRD_PARTY_API_METHOD" length="50" />
+            </key-property>
+            <key-property name="voiceThirdPartyApiHeaderParams" type="string">
+                <column name="VOICE_THIRD_PARTY_API_HEADER_PARAMS" length="1073741823" />
+            </key-property>
+            <key-property name="voiceThirdPartyApiUrl" type="string">
+                <column name="VOICE_THIRD_PARTY_API_URL" length="1073741823" />
+            </key-property>
+            <key-property name="voiceThirdPartyApiResultType" type="string">
+                <column name="VOICE_THIRD_PARTY_API_RESULT_TYPE" length="4000" />
+            </key-property>
+            <key-property name="voiceThirdPartyApiRunAtServer" type="java.lang.Boolean">
+                <column name="VOICE_THIRD_PARTY_API_RUN_AT_SERVER" />
+            </key-property>
+            <key-property name="voiceIncProp" type="string">
+                <column name="VOICE_INC_PROP" length="800" />
+            </key-property>
+            <key-property name="voiceExcProp" type="string">
+                <column name="VOICE_EXC_PROP" length="800" />
+            </key-property>
+            <key-property name="voiceEmotion" type="string">
+                <column name="VOICE_EMOTION" length="1024" />
+            </key-property>
+            <key-property name="voiceEnabled" type="boolean">
+                <column name="VOICE_ENABLED" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

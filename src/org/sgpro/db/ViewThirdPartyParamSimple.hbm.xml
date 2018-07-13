@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewThirdPartyParamSimple" table="VIEW_THIRD_PARTY_PARAM_SIMPLE" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewThirdPartyParamSimpleId">
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="NAME" length="50" />
+            </key-property>
+            <key-property name="header0Body1" type="boolean">
+                <column name="HEADER_0_BODY_1" />
+            </key-property>
+            <key-property name="optional" type="boolean">
+                <column name="OPTIONAL" />
+            </key-property>
+            <key-property name="defaultValue" type="string">
+                <column name="DEFAULT_VALUE" length="500" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="500" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

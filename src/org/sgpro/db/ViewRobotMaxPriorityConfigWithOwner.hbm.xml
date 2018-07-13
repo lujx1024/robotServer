@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewRobotMaxPriorityConfigWithOwner" table="VIEW_ROBOT_MAX_PRIORITY_CONFIG_WITH_OWNER" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewRobotMaxPriorityConfigWithOwnerId">
+            <key-property name="priority" type="int">
+                <column name="PRIORITY" />
+            </key-property>
+            <key-property name="robotImei" type="string">
+                <column name="ROBOT_IMEI" length="50" />
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="NAME" length="256" />
+            </key-property>
+            <key-property name="value" type="string">
+                <column name="VALUE" length="1073741823" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="128" />
+            </key-property>
+            <key-property name="ownerId" type="long">
+                <column name="OWNER_ID" />
+            </key-property>
+            <key-property name="ownerName" type="string">
+                <column name="OWNER_NAME" length="500" />
+            </key-property>
+            <key-property name="robotId" type="long">
+                <column name="ROBOT_ID" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

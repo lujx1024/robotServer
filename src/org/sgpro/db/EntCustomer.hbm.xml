@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntCustomer" table="ENT_CUSTOMER" schema="dbo" catalog="G2Robot">
+        <id name="id" type="string">
+            <column name="ID" length="100" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="nickName" type="string">
+            <column name="NICK_NAME" length="50" />
+        </property>
+        <property name="englishName" type="string">
+            <column name="ENGLISH_NAME" length="50" />
+        </property>
+        <property name="sex" type="java.lang.Boolean">
+            <column name="SEX" />
+        </property>
+        <property name="customerGroupId" type="string">
+            <column name="CUSTOMER_GROUP_ID" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblHuaqin2016ProviderConfrencePaticipants" table="TBL_HUAQIN_2016_PROVIDER_CONFRENCE_PATICIPANTS" schema="dbo" catalog="G2Robot">
+        <id name="name" type="string">
+            <column name="NAME" length="50" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="entHuaqin2016ProviderConfrenceCompany" class="org.sgpro.db.EntHuaqin2016ProviderConfrenceCompany" fetch="select">
+            <column name="COMPANY_ID" not-null="true" />
+        </many-to-one>
+        <property name="id" type="long">
+            <column name="ID" not-null="true" />
+        </property>
+        <property name="mettingRowNum" type="long">
+            <column name="METTING_ROW_NUM" not-null="true" />
+        </property>
+        <property name="mettingColNum" type="long">
+            <column name="METTING_COL_NUM" not-null="true" />
+        </property>
+        <property name="dinnerNo" type="string">
+            <column name="DINNER_NO" length="50" not-null="true" />
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="ENABLED" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

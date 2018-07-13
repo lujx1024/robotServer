@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblRobotAppVersion" table="TBL_ROBOT_APP_VERSION" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblRobotAppVersionId">
+            <key-property name="robotAppId" type="long">
+                <column name="ROBOT_APP_ID" />
+            </key-property>
+            <key-property name="versionCode" type="long">
+                <column name="VERSION_CODE" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entRobotApp" class="org.sgpro.db.EntRobotApp" update="false" insert="false" fetch="select">
+            <column name="ROBOT_APP_ID" not-null="true" />
+        </many-to-one>
+        <property name="versionName" type="string">
+            <column name="VERSION_NAME" length="500" not-null="true" />
+        </property>
+        <property name="downloadUrl" type="string">
+            <column name="DOWNLOAD_URL" length="500" not-null="true" />
+        </property>
+        <property name="releaseNote" type="string">
+            <column name="RELEASE_NOTE" length="500" not-null="true" />
+        </property>
+        <property name="publishDatetime" type="timestamp">
+            <column name="PUBLISH_DATETIME" length="23" not-null="true" />
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="ENABLED" not-null="true" />
+        </property>
+        <set name="tblRobotAppVersionRequireds" table="TBL_ROBOT_APP_VERSION_REQUIRED" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROBOT_APP_ID" not-null="true" />
+                <column name="VERSION_CODE" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblRobotAppVersionRequired" />
+        </set>
+    </class>
+</hibernate-mapping>

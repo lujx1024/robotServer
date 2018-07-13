@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntConfig" table="ENT_CONFIG" schema="dbo" catalog="G2Robot">
+        <id name="name" type="string">
+            <column name="NAME" length="256" />
+            <generator class="assigned" />
+        </id>
+        <property name="ownerId" type="long">
+            <column name="OWNER_ID" not-null="true" />
+        </property>
+        <property name="ownerType" type="long">
+            <column name="OWNER_TYPE" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="50" not-null="true" />
+        </property>
+        <property name="value" type="string">
+            <column name="VALUE" length="1073741823" not-null="true" />
+        </property>
+        <property name="level" type="long">
+            <column name="LEVEL" not-null="true" />
+        </property>
+        <property name="limitL" type="string">
+            <column name="LIMIT_L" length="50" />
+        </property>
+        <property name="limitH" type="string">
+            <column name="LIMIT_H" length="50" />
+        </property>
+        <property name="candidate" type="string">
+            <column name="CANDIDATE" length="4000" />
+        </property>
+        <property name="pattern" type="string">
+            <column name="PATTERN" length="50" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="128" not-null="true" />
+        </property>
+        <property name="uiOrder" type="long">
+            <column name="UI_ORDER" not-null="true" />
+        </property>
+        <set name="tblCustomizedConfigForHwSpecs" table="TBL_CUSTOMIZED_CONFIG_FOR_HW_SPEC" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NAME" length="256" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblCustomizedConfigForHwSpec" />
+        </set>
+        <set name="tblCustomizedConfigForIndustries" table="TBL_CUSTOMIZED_CONFIG_FOR_INDUSTRY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NAME" length="256" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblCustomizedConfigForIndustry" />
+        </set>
+        <set name="tblCustomizedConfigForUserGroupScenes" table="TBL_CUSTOMIZED_CONFIG_FOR_USER_GROUP_SCENE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NAME" length="256" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblCustomizedConfigForUserGroupScene" />
+        </set>
+        <set name="tblInheritConfigForUserGroups" table="TBL_INHERIT_CONFIG_FOR_USER_GROUP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CONFIG_NAME" length="256" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblInheritConfigForUserGroup" />
+        </set>
+        <set name="tblInheritConfigForRobots" table="TBL_INHERIT_CONFIG_FOR_ROBOT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CONFIG_NAME" length="256" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblInheritConfigForRobot" />
+        </set>
+        <set name="tblCustomizedConfigForRobots" table="TBL_CUSTOMIZED_CONFIG_FOR_ROBOT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NAME" length="256" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblCustomizedConfigForRobot" />
+        </set>
+        <set name="tblCustomizedConfigForUserGroups" table="TBL_CUSTOMIZED_CONFIG_FOR_USER_GROUP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NAME" length="256" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblCustomizedConfigForUserGroup" />
+        </set>
+    </class>
+</hibernate-mapping>

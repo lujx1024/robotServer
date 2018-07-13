@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewRobotAppVersionRequired" table="VIEW_ROBOT_APP_VERSION_REQUIRED" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewRobotAppVersionRequiredId">
+            <key-property name="dbVersion" type="string">
+                <column name="DB_VERSION" length="50" />
+            </key-property>
+            <key-property name="appId" type="long">
+                <column name="APP_ID" />
+            </key-property>
+            <key-property name="appName" type="string">
+                <column name="APP_NAME" length="50" />
+            </key-property>
+            <key-property name="robotImei" type="string">
+                <column name="ROBOT_IMEI" length="50" />
+            </key-property>
+            <key-property name="requriedVersionCode" type="long">
+                <column name="REQURIED_VERSION_CODE" />
+            </key-property>
+            <key-property name="requriedVersionName" type="string">
+                <column name="REQURIED_VERSION_NAME" length="500" />
+            </key-property>
+            <key-property name="lastestVersionCode" type="java.lang.Long">
+                <column name="LASTEST_VERSION_CODE" />
+            </key-property>
+            <key-property name="lastestVersionName" type="string">
+                <column name="LASTEST_VERSION_NAME" length="500" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

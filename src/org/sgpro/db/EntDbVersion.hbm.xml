@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntDbVersion" table="ENT_DB_VERSION" schema="dbo" catalog="G2Robot">
+        <id name="name" type="string">
+            <column name="NAME" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="pubDatetime" type="timestamp">
+            <column name="PUB_DATETIME" length="23" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="1073741823" not-null="true" />
+        </property>
+        <property name="scripts" type="string">
+            <column name="SCRIPTS" length="1073741823" />
+        </property>
+        <set name="tblRobotAppVersionRequireds" table="TBL_ROBOT_APP_VERSION_REQUIRED" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DB_VERSION" length="50" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblRobotAppVersionRequired" />
+        </set>
+        <one-to-one name="tblVersionRequired" class="org.sgpro.db.TblVersionRequired"></one-to-one>
+    </class>
+</hibernate-mapping>

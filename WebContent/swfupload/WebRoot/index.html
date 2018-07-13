@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="js/ligerUI/skins/Aqua/css/ligerui-all.css" type="text/css" rel="stylesheet" />  
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>  
+	<script type="text/javascript" src="js/ligerUI/js/core/base.js"></script>  
+    <script type="text/javascript" src="js/ligerUI/js/plugins/ligerDrag.js"></script>  
+    <script type="text/javascript" src="js/ligerUI/js/plugins/ligerDialog.js"></script>  
+	<script type="text/javascript" src="js/swfupload/swfupload.js"></script>  
+	<script type="text/javascript" src="js/swfupload/plugins/swfupload.queue.js"></script> 
+<style type="text/css">
+	#logList { margin: 0; padding: 0; width: 500px }    
+	#logList li { list-style-position: inside; margin: 2px; border: 1px solid #ccc; padding: 10px; color: #333; font-size: 15px; background: #FFF; position: relative; }    
+	#logList li .progressBar { border:1px solid #333; height:5px; background:#fff; }      
+	#logList li .progressValue { color: red; margin-left: 5px }      
+	#logList li .progress { background:#999; width:0%; height:5px; }      
+	#logList li p { margin:0; line-height:18px; }      
+	#logList li.success { border:1px solid #339933; background:#ccf9b9; }    
+	#logList li span.cancel { background:url('../images/delete.gif') no-repeat; position:absolute; top:5px;right:5px; width:16px; height:16px; cursor:pointer } 
+</style>
+</head>
+<body>
+	<div id="swfupload">    
+	    <span id="spanButtonPlaceholder"></span>    
+	    <p id="queueStatus"></p>    
+	    <ol id="logList"></ol>    
+	</div>
+<script>
+	//var contextPath;  
+	var queueErrorArray;  
+	$(function(){  
+	   // contextPath = $("#contextPath").val();  
+	      
+	    var swfUpload = new SWFUpload({  
+	        upload_url:'./swfupload/upload!upload.action',  
+	        flash_url:'./js/swfupload/Flash/swfupload.swf',  
+	          
+	        file_post_name: 'fileData',  
+	        use_query_string: true,  
+	        post_params: {  
+	            param1: 'Hello',  
+	            param2: encodeURI('你好',"utf-8")  
+	        },  
+	          
+	        file_types: "*.txt;*.jpg",  
+	        file_types_description: '上报数据文件',  
+	        file_size_limit: '102400',  
+	//      file_upload_limit: 5,  
+	        file_queue_limit: 3,  
+	          
+	        // handlers  
+	        file_dialog_start_handler: fileDialogStart,  
+	        file_queued_handler: fileQueued,  
+	        file_queue_error_handler: fileQueueError,  
+	        file_dialog_complete_handler: fileDialogComplete,  
+	        upload_start_handler: uploadStart,  
+	        upload_progress_handler: uploadProgress,  
+	        upload_success_handler: uploadSuccess,  
+	        upload_complete_handler: uploadComplete,  
+	          
+	        button_placeholder_id: 'spanButtonPlaceholder',  
+	        button_text: '<span class="whiteFont">选择文件</span>',  
+	        button_text_style: '.whiteFont{ color: #FFFFFF; }',  
+	        button_text_left_padding: 40,  
+	        button_text_top_padding: 6,  
+	        button_image_url:'./images/button.png',  
+	        button_width: 133,  
+	        button_height: 33,  
+	        button_cursor: SWFUpload.CURSOR.HAND,  
+	        button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,  
+	          
+	        debug: false,  
+	          
+	        custom_settings: {}  
+	    });  
+	}); 
+ 
+function fileDialogStart() {  
+    if (queueErrorArray) {  
+        queueErrorArray = null;  
+    }  
+} 
+
+function fileQueued(file) {  
+    var swfUpload = this;  
+    var listItem = '<li id="' + file.id + '">';  
+    listItem += '文件:<em>' + file.name + '</em>(' + Math.round(file.size/1024) + ' KB)';  
+    listItem += '<span class="progressValue"></span>'  
+              + '<div class="progressBar"><div class="progress"></div></div>'  
+              + '<p class="status" >Pending</p>'  
+              + '<span class="cancel" > </span>'  
+              + '</li>';  
+    $("#logList").append(listItem);  
+    $("li#" + file.id + " .cancel").click(function(e) {  
+        swfUpload.cancelUpload(file.id);  
+        $("li#" + file.id).slideUp('fast');  
+    })  
+	//swfUpload.startUpload();  
+}  
+
+function fileQueueError(file,errorCode,message) {  
+    if (errorCode == SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED) {  
+        alert("上传队列中最多只能有3个文件等待上传.");  
+        return;  
+    }  
+    if (!queueErrorArray) {  
+        queueErrorArray = [];  
+    }  
+    var errorFile = {  
+        file: file,  
+        code: errorCode,  
+        error: ''  
+    };  
+    switch (errorCode) {  
+    case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:  
+        errorFile.error = '文件大小超出限制.';  
+        break;  
+    case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:  
+        errorFile.error = '文件类型受限.';  
+        break;  
+    case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:  
+        errorFile.error = '文件为空文件.';  
+        break;  
+    default:  
+        alert('加载入队列出错.');  
+        break;  
+    }  
+    queueErrorArray.push(errorFile);  
+}  
+
+
+function fileDialogComplete(numSelected,numQueued,numTotalInQueued) {  
+    var swfupload = this;  
+    if (queueErrorArray && queueErrorArray.length) {  
+        var table = $('<table><tr><td>文件</td><td>大小</td></tr></table>');  
+        for(var i in queueErrorArray) {  
+            var tr = $('<tr></tr>');  
+            var info = '<td>' + queueErrorArray[i].file.name + '<span style="color:red">('   
+                        + queueErrorArray[i].error + ')</span></td>'  
+                        + '<td>' + queueErrorArray[i].file.size + 'bytes</td>';  
+            table.append(tr.append(info));  
+        }  
+        $.ligerDialog.open({  
+            width: 500,  
+            content: table,  
+            title: '文件选择错误提示',  
+            buttons: [{  
+                text: '确定',  
+                onclick: function(btn,dialog,index) {  
+                    $("#queueStatus").text('选择文件: ' + numSelected   
+                            + ' / 加入队列文件: ' + numQueued);  
+                    swfupload.startUpload();  
+                    dialog.close();  
+                }  
+            }]  
+        });  
+        queueErrorArray = [];  
+    } else {  
+        this.startUpload();  
+    }  
+}  
+
+function uploadStart(file) {  
+    if (file) {  
+        $("#logList li#" + file.id).find('p.status').text('上传中...');  
+        $("#logList li#" + file.id).find('p.progressValue').text('0%');  
+    }  
+} 
+
+function uploadProgress(file,bytesCompleted,bytesTotal) {  
+    var percentage = Math.round((bytesCompleted / bytesTotal) * 100);  
+    $("#logList li#" + file.id).find('div.progress').css('width',percentage + '%');  
+    $("#logList li#" + file.id).find('span.progressValue').text(percentage + '%');  
+} 
+
+function uploadSuccess(file,serverData,response) {  
+    var item = $("#logList li#" + file.id);  
+    item.find('div.progress').css('width','100%');  
+    item.find('span.progressValue').css('color','blue').text('100%');  
+      
+    item.addClass('success').find('p.status').html('上传完成!');  
+} 
+
+function uploadComplete(file) {  
+    this.uploadStart();  
+}  
+</script>
+</body>
+</html>

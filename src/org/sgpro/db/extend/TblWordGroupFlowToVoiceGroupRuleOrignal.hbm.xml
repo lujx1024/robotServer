@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-24 21:17:31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblWordGroupFlowToVoiceGroupRuleOrignal" table="TBL_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_ORIGNAL" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="entUserByUpdateUserId" class="org.sgpro.db.EntUser"  fetch="join" lazy="false">
+            <column name="UPDATE_USER_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entVoice" class="org.sgpro.db.EntVoice"  fetch="join" lazy="false">
+            <column name="VOICE_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entWordGroupFlow" class="org.sgpro.db.EntWordGroupFlow"  fetch="join" lazy="false" >
+            <column name="GEN_WORD_GROUP_FLOW_ID" />
+        </many-to-one>
+        <many-to-one name="entUserByCreateUserId" class="org.sgpro.db.EntUser" fetch="join" lazy="false">
+            <column name="CREATE_USER_ID" not-null="true" />
+        </many-to-one>
+        <property name="request" type="string">
+            <column name="REQUEST" length="800" not-null="true" />
+        </property>
+        <property name="createDatetime" type="timestamp">
+            <column name="CREATE_DATETIME" length="23" not-null="true" />
+        </property>
+        <property name="updateDatetime" type="timestamp">
+            <column name="UPDATE_DATETIME" length="23" not-null="true" />
+        </property>
+        <property name="responseVoiceGroupId" type="java.lang.Long">
+            <column name="RESPONSE_VOICE_GROUP_ID" />
+        </property>
+        <property name="genDatetime" type="timestamp">
+            <column name="GEN_DATETIME" length="23" />
+        </property>
+    </class>
+</hibernate-mapping>

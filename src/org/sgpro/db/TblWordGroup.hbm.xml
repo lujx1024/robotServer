@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblWordGroup" table="TBL_WORD_GROUP" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblWordGroupId">
+            <key-property name="keyWordId" type="long">
+                <column name="KEY_WORD_ID" />
+            </key-property>
+            <key-property name="groupId" type="long">
+                <column name="GROUP_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entWordGroup" class="org.sgpro.db.EntWordGroup" update="false" insert="false" fetch="select">
+            <column name="GROUP_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entKeyWords" class="org.sgpro.db.EntKeyWords" update="false" insert="false" fetch="select">
+            <column name="KEY_WORD_ID" not-null="true" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="1024" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Config</title>
+<!-- 	<style>
+/* 		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; } */
+/* 		body { background:#fff; color:#555; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; } */
+/* 		td,th,caption { font-size:14px; } */
+/* 		h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; } */
+/* 		address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;} */
+/* 		a { color:#555; text-decoration:none; } */
+/* 		a:hover { text-decoration:underline; } */
+/* 		img { border:none; } */
+/* 		ol,ul,li { list-style:none; } */
+/* 		input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; } */
+/* 		textarea{resize: none;} */
+/* 		table { border-collapse:collapse; } */
+/* 		html {overflow-y: scroll;}  */
+/* 		/* css common */ */
+/* 		.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;} */
+/* 		.clearfix { *zoom:1; } */
+		
+/* 		.contain_box{margin:20px 0 0 20px;} */
+/* 		.fl{float:left;} */
+/* 		.fr{float: right;} */
+/* 		.form_list{margin-bottom: 20px;} */
+/* 		.form_list label{width: 110px;text-align: right;margin-right: 8px;height: 30px;line-height: 30px;} */
+/* 		.form_list input[type="text"],.form_list select{width: 220px;box-sizing: border-box;height: 30px;} */
+/* 		.inout[type="button"]{padding: 0 5px;height: 30px;} */
+/* 		.addBtn{height: 30px;margin-left: 8px;padding: 0 5px;} */
+/* 		#detail,#detail_new{width: 550px;min-height:170px;padding: 10px;margin-bottom: 10px;border: 1px solid #ccc;} */
+/* 		#detail label,#detail_new label{display: block} */
+/* 		#detail textarea,#detail_new textarea{margin-bottom: 10px;width: 100%;box-sizing: border-box;} */
+/* 		.displayNone{display: none;} */
+	</style> -->
+<link href="css/config.css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+</head>
+<body>
+	<div class="contain_box">
+		<div id="submit_mod">
+			<div class="clearfix form_list">
+				<label class="fl">UserId: </label>
+				<input name="user_id" value="1472554616953" type="text" readonly="readonly" class="fl">
+			</div>
+			<div class="clearfix form_list">
+				<label class="fl">RobotId: </label>
+				<input name="robot_id" value="1466087997383" type="text" readonly="readonly" class="fl">
+			</div>
+			<div class="clearfix form_list" id="newItemIpt">
+				<label class="fl">Config Name:</label>
+				<select name="config_key" id="nameList" class="fl"></select>
+				<input type="button" value="增加" class="addBtn">
+			</div>
+			<div style="width:570px" id="detailBox">
+				<div id="detail"></div>
+				<input value="确定" type="button" class="fr submit" id="submit">
+			</div>
+		</div>
+		<div id="submit_new">
+			<div class="new_item displayNone">
+				<div style="width:570px;margin-bottom:40px;">
+					<div id="detail_new">
+						<label>name:</label>
+						<textarea name="config_key"></textarea>
+						<label>value:</label>
+						<textarea name="config_value"></textarea>
+						<label>description:</label>
+						<textarea name="description"></textarea>
+					</div>
+					<input type="button" value="关闭" class="fr" id="newItemClose">
+					<input type="button" value="重新输入" class="fr" id="newItemReset" style="margin:0 10px;">
+					<input type="button" value="确定" class="fr" id="newItemBtn">
+				</div>
+			</div>
+		</div>	
+	</div>
+	<script>
+		(function($){
+			$(".addBtn").click(function(){
+				$(".new_item").removeClass("displayNone");
+				$("#newItemIpt").addClass("displayNone");
+				$("#newItem").focus();
+				$("#detailBox").addClass("displayNone");
+			});
+			$("#newItemClose,#newItemReset").click(function(){
+				$("#detail_new textarea").val("");
+			});
+			$("#newItemClose").click(function(){
+				$("#detail_new").val("");
+				$(".new_item").addClass("displayNone");
+				$("#newItemIpt").removeClass("displayNone");
+				$("#detailBox").removeClass("displayNone");
+			});
+
+			//url字段处理
+			var locationHref=window.location.href;
+			var indexUrl=locationHref.indexOf("?");
+			var urlString=locationHref.substring(indexUrl+1);
+			var aUrl=urlString.split('&');
+			var oId={};
+			for(var i=0;i<aUrl.length;i++){	
+				var aUrlT=aUrl[i].split("=");
+				var key=aUrlT[0];
+				oId[key]=aUrlT[1];
+			}
+			$("input[name='user_id']").val(oId.uid);
+			$("input[name='robot_id']").val(oId.robot);
+			sn = oId.sn;
+			//创建name下拉框
+			var robotList=[];
+			$.ajax({
+				type:"GET",
+				url:"https://172.16.210.121/signalmaster/rest/config/" + sn,
+				dataType:"json",
+				cache:false,
+				success:function(result){
+					configList=result['data'];
+					for(var key in configList[0]){
+						if(key!='name'){
+							if(key!='description'){
+								$("#detail").append("<label>"+key+":</label><textarea name=config_"+key+"></textarea>");
+								$("#detail textarea[name='config_value']").val(configList[0][key]);
+							}else{
+								$("#detail").append("<label>"+key+":</label><textarea name="+key+">"+configList[0][key]+"</textarea>");
+							}		
+						}			
+					}
+					for(var i=0;i<configList.length;i++){
+						if(i==0){
+							$("#nameList").append("<option value="+configList[i].name+" selected='selected'>"+configList[i].name+" ("+configList[i].description+")</option>");
+							continue;
+						}
+						$("#nameList").append("<option value="+configList[i].name+">"+configList[i].name+" ("+configList[i].description+")</option>");
+					}
+					$("#nameList").change(function(){
+						var checkedIndex=$(this).get(0).selectedIndex;
+						$("#detail").html('');
+						for(var key in configList[checkedIndex]){
+							if(key!='name'){
+								if(key!='description'){
+									$("#detail").append("<label>"+key+":</label><textarea name=config_"+key+">"+configList[checkedIndex][key]+"</textarea>");
+									
+								}else{
+									$("#detail").append("<label>"+key+":</label><textarea name="+key+">"+configList[checkedIndex][key]+"</textarea>");
+								}		
+							}			
+						}
+					})
+					
+				},
+				error:function(){
+					alert("服务器异常！")
+				}
+			})
+			$("#submit").click(function(){
+				var subData={
+					user_id:$("#submit_mod input[name='user_id']").val(),
+					robot_id:$("#submit_mod input[name='robot_id']").val(),
+					config_key:$("#nameList").val(),
+					config_value:$("#detail textarea[name='config_value']").val(),
+					description:$("#detail textarea[name='description']").val()
+				};
+				subForm("https://www.robotcheers.com//signalmaster/rest/set_config",subData);
+			})
+			$("#newItemBtn").click(function(){
+				var subData={
+					user_id:$("#submit_mod input[name='user_id']").val(),
+					robot_id:$("#submit_mod input[name='robot_id']").val(),
+					config_key:$("#detail_new textarea[name='config_key']").val(),
+					config_value:$("#detail_new textarea[name='config_value']").val(),
+					description:$("#detail_new textarea[name='description']").val()
+				};
+				console.log(subData)
+				subForm("https://www.robotcheers.com//signalmaster/rest/set_config",subData);
+				$("#detail_new textarea").val("")
+
+			})
+
+			//表单提交函数
+			function subForm(subUrl,subData){
+				$.ajax({
+					cache:false,
+					type:"POST",
+					url:subUrl,
+					data:subData,
+					success:function(){
+						alert('提交成功！');
+					},
+					error:function(){
+						alert('服务器异常！');
+					}
+				})
+
+			}	
+		})(jQuery)
+	</script>
+</body>
+</html>

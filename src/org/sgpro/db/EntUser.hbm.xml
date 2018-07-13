@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntUser" table="ENT_USER" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="entUserGroup" class="org.sgpro.db.EntUserGroup" fetch="select">
+            <column name="USER_GROUP_ID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="50" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="100" not-null="true" />
+        </property>
+        <set name="tblWordGroupFlowToVoiceGroupRuleOrignalsForUpdateUserId" table="TBL_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_ORIGNAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UPDATE_USER_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblWordGroupFlowToVoiceGroupRuleOrignal" />
+        </set>
+        <set name="tblWordGroupFlowToVoiceGroupRuleOrignalsForCreateUserId" table="TBL_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_ORIGNAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CREATE_USER_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblWordGroupFlowToVoiceGroupRuleOrignal" />
+        </set>
+    </class>
+</hibernate-mapping>

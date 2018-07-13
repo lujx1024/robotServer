@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewWordGroupFlowToVoiceGroupRuleOrignalV2" table="VIEW_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_ORIGNAL_V2" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewWordGroupFlowToVoiceGroupRuleOrignalV2Id">
+            <key-property name="request" type="string">
+                <column name="REQUEST" length="800" />
+            </key-property>
+            <key-property name="createUserId" type="long">
+                <column name="CREATE_USER_ID" />
+            </key-property>
+            <key-property name="updateUserId" type="long">
+                <column name="UPDATE_USER_ID" />
+            </key-property>
+            <key-property name="createDatetime" type="timestamp">
+                <column name="CREATE_DATETIME" length="23" />
+            </key-property>
+            <key-property name="updateDatetime" type="timestamp">
+                <column name="UPDATE_DATETIME" length="23" />
+            </key-property>
+            <key-property name="genWordGroupFlowId" type="long">
+                <column name="GEN_WORD_GROUP_FLOW_ID" />
+            </key-property>
+            <key-property name="genDatetime" type="timestamp">
+                <column name="GEN_DATETIME" length="23" />
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="NAME" length="50" />
+            </key-property>
+            <key-property name="path" type="string">
+                <column name="PATH" length="1024" />
+            </key-property>
+            <key-property name="emotion" type="string">
+                <column name="EMOTION" length="1024" />
+            </key-property>
+            <key-property name="text" type="string">
+                <column name="TEXT" length="1024" />
+            </key-property>
+            <key-property name="command" type="long">
+                <column name="COMMAND" />
+            </key-property>
+            <key-property name="commandParam" type="string">
+                <column name="COMMAND_PARAM" length="1073741823" />
+            </key-property>
+            <key-property name="thirdPartyApiId" type="long">
+                <column name="THIRD_PARTY_API_ID" />
+            </key-property>
+            <key-property name="thirdPartyApiParamsValueId" type="long">
+                <column name="THIRD_PARTY_API_PARAMS_VALUE_ID" />
+            </key-property>
+            <key-property name="incProp" type="string">
+                <column name="INC_PROP" length="800" />
+            </key-property>
+            <key-property name="cat" type="string">
+                <column name="CAT" length="50" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="1024" />
+            </key-property>
+            <key-property name="voiceId" type="long">
+                <column name="VOICE_ID" />
+            </key-property>
+            <key-property name="voiceEnabled" type="boolean">
+                <column name="VOICE_ENABLED" />
+            </key-property>
+            <key-property name="orignalRuleId" type="long">
+                <column name="ORIGNAL_RULE_ID" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewRemoteSelectUserinfoList" table="VIEW_REMOTE_SELECT_USERINFO_LIST" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewRemoteSelectUserinfoListId">
+            <key-property name="userId" type="long">
+                <column name="USER_ID" />
+            </key-property>
+            <key-property name="userName" type="string">
+                <column name="USER_NAME" length="500" />
+            </key-property>
+            <key-property name="password" type="string">
+                <column name="PASSWORD" length="50" />
+            </key-property>
+            <key-property name="userLevel" type="string">
+                <column name="USER_LEVEL" length="1" />
+            </key-property>
+            <key-property name="userRelateRobot" type="java.lang.String">
+                <column name="ROBOT_SN" length="4000"  not-null="true"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

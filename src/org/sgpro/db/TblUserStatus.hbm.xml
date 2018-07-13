@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblUserStatus" table="TBL_USER_STATUS" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblUserStatusId">
+            <key-property name="userId" type="long">
+                <column name="USER_ID" />
+            </key-property>
+            <key-property name="updateDatetime" type="timestamp">
+                <column name="UPDATE_DATETIME" length="23" />
+            </key-property>
+        </composite-id>
+        <property name="online" type="boolean">
+            <column name="ONLINE" not-null="true" />
+        </property>
+        <property name="extraInfo" type="string">
+            <column name="EXTRA_INFO" length="1073741823" />
+        </property>
+        <property name="wssSessionId" type="string">
+            <column name="WSS_SESSION_ID" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>

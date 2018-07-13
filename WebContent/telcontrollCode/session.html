@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>奥拓智能机器人后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="js/jsonview/jquery.jsonview.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="js/jsonview/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/Sortable.js"></script>
+	
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/session_new.js"></script>
+</head>
+<body>
+	<div id="controllPanelId" style="position:relative;">
+		<div class="wapper_content">
+			<div class="table_bar"><span>远程遥控</span><img class="robotImg" title="机器人列表显示" src="img/show.png"><img class="chatImg" title="会话显示" src="img/show.png"></div>
+			<div class="table_container">
+				<div class="session_box">
+					<div class="session_content session_current">
+						<section class="session_talk clearfix">
+							
+							<div class="talk_title fl">
+								<img src="img/reflesh.png" class="reflesh-robot">
+								<span class="all_robots all_robots_current">机器人列表</span>
+								<form action="" id="robots" class="clearfix"></form>
+							</div>
+							<div class="fl talk_container" style="display:none;">
+								<div class="mainPanel_left">
+									<div class="talk_content">
+										<ul id="more_session"></ul>
+										<a href='javascript:;' class='close_more_session'>查看更多消息</a>
+										<div class="session_loaded"><img src="images/icon_gif.gif" height="16px;"></div>
+										<ul class="talk_list"></ul>
+									</div>
+								</div>
+								<div class="mainPanel_right">
+									<div class="session_input_box">
+										<div class="session_bar clearfix">
+												<div class="commandPanel_basic">
+													<div style="padding-left:1em;padding-top:1em;">
+														<div class="fl session_auto">
+															<label>手动</label>
+															<input type="checkbox" id="hand_mode">
+														</div>
+														<div class="fl session_auto">
+															<label>静音</label>
+															<input type="checkbox" class="disable_eable" id="isSilent">
+														</div>
+														<div class="fl session_command " style="display:none;">
+															<label>资源路径</label>
+															<input type="text" id="source_path" class="disable_eable" style="width:150px;">
+														</div>
+														<div class="fl session_command " style="display:none;">
+															<label>命令</label>
+															<select id="session_command" class="disable_eable" style="width:150px;">
+																<option value="0">无</option>
+															</select>
+														</div>
+														<div class="fl session_command " style="display:none;">	
+															<label>参数</label>
+															<input type="text" id="command_param" class="disable_eable" style="width:150px;">
+														</div>
+														<div class="fl session_command " style="display:none;">
+															<label>第三方</label>
+															<select id="session_third" class="disable_eable" style="width:150px;"></select>
+														</div>
+														<div class="fl session_command " style="display:none;">
+															<label>第三方参数</label>
+															<select id="session_thirdParam" class="disable_eable" style="width:150px">
+																<option value="0">无</option>
+															</select>
+														</div>
+													
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="100" param="3" id="add_voice" title="增大音量"></button>
+															<button class="disable_eable command_button" command="100" param="-3" id="down_voice" title="减小音量"></button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="1004" param="" id="battery" 	title="播报电量"></button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="98" param="" id="update_config" title="更新配置"></button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="1007" param="$perform-action$" id="dance" title="跳舞">跳舞</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="1009" param="" title="打印">打印</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="2002" param="" title="返回迎宾">返回迎宾</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="2001" param="" title="返回主页">返回主页</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="2004" param="" title="中断">中断</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="2005" param="" title="过场动画">过场动画</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable command_button" command="1008" param="" title="回去充电">回去充电</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="新闻" title="新闻">新闻</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="唱首歌" title="唱首歌">唱首歌</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="讲个笑话" title="讲个笑话">讲个笑话</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="今天的天气" title="今天的天气">今天的天气</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="明天的天气" title="明天的天气">明天的天气</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="黄金的价格" title="黄金的价格">黄金的价格</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="今日的汇率" title="今日的汇率">今日的汇率</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="附近的酒店" title="附近的酒店">附近的酒店</button>
+														</div>
+														<div class="fl session_command ">
+															<button class="disable_eable bindcommand_button" textValue="附近的公交站台" title="附近的公交站台">附近的公交站台</button>
+														</div>
+														
+														<div class="fl session_command">
+															<button id="face_pack" class="disable_eable" title="表情" style="cursor:pointer;"></button>
+															<div class="face_list" style="display:none;">
+																<ul class="clearfix face_list_box">
+																	<li param="EMOTION,START,AFRAID" emotion="EMOTION,START,AFRAID" command="1001" textword ="好怕怕呀！"><img title="害怕" src="images/face/face_afraid.png"></li>
+																	<li param="EMOTION,START,ANGRY" emotion="EMOTION,START,ANGRY" command="1001" textword ="你让我我生气了，不理你了！"><img title="生气" src="images/face/face_angry.png"></li>
+																	<li param="EMOTION,START,BIG-SMALL" emotion="EMOTION,START,BIG-SMALL" command="1001" textword = "哔哩哔哩，我是不是很可爱呀！"><img title="大小眼" src="images/face/face_big.png"></li>
+																	<li param="EMOTION,START,BLINK" emotion="EMOTION,START,BLINK" command="1001" textword = "嘻嘻嘻，我好喜欢你呀!"><img title="眨眼睛" src="images/face/face_blink.png"></li>
+																	<li param="EMOTION,START,CONFUSE" emotion="EMOTION,START,CONFUSE" command="1001" textword = ""><img title="故障" src="images/face/face_confuse.png"></li>
+																	<li param="EMOTION,START,DANCE-1S" emotion="EMOTION,START,DANCE-1S" command="1001" textword = ""><img title="跳舞1s" src="images/face/face_dance.png"></li>
+																	<li param="EMOTION,START,DEFAULT" emotion="EMOTION,START,DEFAULT" command="1001" textword = ""><img title="默认表情" src="images/face/face_default.png"></li>
+																	<li param="EMOTION,START,FLIRT" emotion="EMOTION,START,FLIRT" command="1001" textword="哔哩哔哩，我是你的小可爱哟！"><img title="挑逗" src="images/face/face_flirt.png"></li>
+																	<li param="EMOTION,START,HAPPY" emotion="EMOTION,START,HAPPY" command="1001"  textword="哈哈哈，我好开心啊！"><img title="高兴" src="images/face/face_happy.png"></li>
+																	<li param="EMOTION,START,HEART"  emotion="EMOTION,START,HEART" command="1001" textword="哇呀!好激动，感觉棒极了"><img title="心" src="images/face/face_heart.png"></li>
+																	<li param="EMOTION,START,NAUTY" emotion="EMOTION,START,NAUTY" command="1001"  textword=""><img title="顽皮" src="images/face/face_nauty.png"></li>
+																	<li param="EMOTION,START,ROTATE" emotion="EMOTION,START,ROTATE" command="1001" textword = ""><img title="网络不良" src="images/face/face_rotate.png"></li>
+																	<li param="EMOTION,START,SAD" emotion="EMOTION,START,SAD" command="1001" textword="哇呀!不开心了，可不可以哄哄我呀！"><img title="伤心" src="images/face/face_sad.png"></li>
+																	<li param="EMOTION,START,SINISTER" emotion="EMOTION,START,SINISTER" command="1001" textword = ""><img title="阴险" src="images/face/face_sinister.png"></li>
+																	<li param="EMOTION,START,WAITING" emotion="EMOTION,START,WAITING" command="1001" textword = ""><img title="等待" src="images/face/face_wait.png"></li>
+																	<li param="EMOTION,START,STAR" emotion="EMOTION,START,STAR" command="1001" textword="哇呀!好激动，感觉棒极了"><img title="开心" src="images/face/face_star.png"></li>
+																	<li param="EMOTION,START,TRANSITION" emotion="EMOTION,START,TRANSITION" command="1001" textword = ""><img title="切换过渡" src="images/face/face_transition.png"></li>
+																	<li param="EMOTION,START,WATCH" emotion="EMOTION,START,WATCH" command="1001" textword = ""><img title="移动观察" src="images/face/face_watch.png"></li>
+																</ul>
+															</div>	
+														</div>
+														<div class="fl session_command ">
+															<input type="button" class="disable_eable" id="commandAdd_Button" value="扩展" disabled="disabled">
+														</div>
+														<div class="fl session_command ">
+															<input type="button" class="disable_eable" id="commandDelete_Button" value="刪除" disabled="disabled">
+														</div>
+													</div>
+												</div>
+												<div class="commandPanel_user">
+													<div class="userDefined" style="padding-left:1em;padding-top:1em;">
+														<div class="fl session_command">
+															<label>文本回复</label>
+															<select id="session_text" class="disable_eable" style="width:150px;"></select>
+														</div>
+													</div>
+												</div>
+										</div>
+										<div class="sessionBar_bottom">
+											<div class="sessionPanel_left">
+												<div class="move_div" id="moveDivId">
+													<p class="move-up">
+														<img class="moveBtn" command="1001" param="MOVE_DIRECTION,START,FORWARD" emotion="" textword="" src="img/move/up.png">
+													</p>
+												
+													<p class="move-content">
+														<img src="img/move/content.png">
+													</p>
+													<p class="move-down ">
+														<img class="moveBtn" command="1001" param="MOVE_DIRECTION,START,BACK" textword="" emotion="" src="img/move/down.png">
+													</p>
+													<p class="move-left">
+														<img class="moveBtn" command="1001" param="MOVE_DIRECTION,START,LEFT" emotion="" textword="" src="img/move/left.png">
+													</p>
+													<p class="move-right">
+														<img class="moveBtn" command="1001" param="MOVE_DIRECTION,START,RIGHT" emotion="" textword=""  src="img/move/right.png">
+													</p>
+												</div>
+											</div>
+											<div class="sessionPanel_right">	
+												<div class="fl question_session session_command " style="margin-top: 1em;width: 98%;">
+													<textarea name="" id="session_question_text"  placeholder="提问的问题"></textarea>
+													<input type="button" id="session_getButton" class="disable_eable" value="获取" disabled="disabled">
+													<input type="button" id="session_clearButton" class="disable_eable" value="清空" disabled="disabled">
+												</div>
+												<div class="answer_textarea" style="float: left;">
+													<textarea name="" id="session_input_text"  placeholder="请选择要对话的机器人，然后进入手动模式，可实行人工对话。"></textarea>
+													<div>
+														
+														<input type="button" class="disable_eable" id="session_send" value="发 送" disabled="disabled">
+														<input type="button" class="disable_eable" id="session_pass" value="自动应答" disabled="disabled">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblRobotAppVersionRequired" table="TBL_ROBOT_APP_VERSION_REQUIRED" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblRobotAppVersionRequiredId">
+            <key-property name="dbVersion" type="string">
+                <column name="DB_VERSION" length="50" />
+            </key-property>
+            <key-property name="robotAppId" type="long">
+                <column name="ROBOT_APP_ID" />
+            </key-property>
+            <key-property name="versionCode" type="long">
+                <column name="VERSION_CODE" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entDbVersion" class="org.sgpro.db.EntDbVersion" update="false" insert="false" fetch="select">
+            <column name="DB_VERSION" length="50" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tblRobotAppVersion" class="org.sgpro.db.TblRobotAppVersion" update="false" insert="false" fetch="select">
+            <column name="ROBOT_APP_ID" not-null="true" />
+            <column name="VERSION_CODE" not-null="true" />
+        </many-to-one>
+        <property name="extra" type="string">
+            <column name="EXTRA" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntDialog" table="ENT_DIALOG" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="request" type="string">
+            <column name="REQUEST" length="1073741823" not-null="true" />
+        </property>
+        <property name="requestEpSn" type="string">
+            <column name="REQUEST_EP_SN" length="250" />
+        </property>
+        <property name="requestModel" type="string">
+            <column name="REQUEST_MODEL" length="4000" />
+        </property>
+        <property name="requestClientIp" type="string">
+            <column name="REQUEST_CLIENT_IP" length="50" />
+        </property>
+        <property name="requestClientVersion" type="string">
+            <column name="REQUEST_CLIENT_VERSION" length="120" />
+        </property>
+        <property name="requestAddr" type="string">
+            <column name="REQUEST_ADDR" length="2000" />
+        </property>
+        <property name="response1" type="string">
+            <column name="RESPONSE_1" length="1073741823" />
+        </property>
+        <property name="response2" type="string">
+            <column name="RESPONSE_2" length="1073741823" />
+        </property>
+        <property name="response3" type="string">
+            <column name="RESPONSE_3" length="1073741823" />
+        </property>
+        <property name="response4" type="string">
+            <column name="RESPONSE_4" length="1073741823" />
+        </property>
+        <property name="response5" type="string">
+            <column name="RESPONSE_5" length="1073741823" />
+        </property>
+        <property name="response6" type="string">
+            <column name="RESPONSE_6" length="1073741823" />
+        </property>
+        <property name="response7" type="string">
+            <column name="RESPONSE_7" length="1073741823" />
+        </property>
+        <property name="response8" type="string">
+            <column name="RESPONSE_8" length="1073741823" />
+        </property>
+        <property name="response9" type="string">
+            <column name="RESPONSE_9" length="1073741823" />
+        </property>
+        <property name="response10" type="string">
+            <column name="RESPONSE_10" length="1073741823" />
+        </property>
+        <property name="response11" type="string">
+            <column name="RESPONSE_11" length="1073741823" />
+        </property>
+        <property name="response12" type="string">
+            <column name="RESPONSE_12" length="1073741823" />
+        </property>
+        <property name="response13" type="string">
+            <column name="RESPONSE_13" length="1073741823" />
+        </property>
+        <property name="response14" type="string">
+            <column name="RESPONSE_14" length="1073741823" />
+        </property>
+        <property name="response15" type="string">
+            <column name="RESPONSE_15" length="1073741823" />
+        </property>
+        <property name="response16" type="string">
+            <column name="RESPONSE_16" length="1073741823" />
+        </property>
+        <property name="execMillsecs" type="java.lang.Long">
+            <column name="EXEC_MILLSECS" />
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="DATE_TIME" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

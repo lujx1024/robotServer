@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntRequest" table="ENT_REQUEST" schema="dbo" catalog="G2Robot">
+        <id name="id" type="string">
+            <column name="ID" length="120" />
+            <generator class="assigned" />
+        </id>
+        <property name="path" type="string">
+            <column name="path" length="4000" />
+        </property>
+        <property name="input" type="string">
+            <column name="input" length="4000" />
+        </property>
+        <property name="lexer" type="string">
+            <column name="lexer" length="4000" />
+        </property>
+        <property name="sn" type="string">
+            <column name="sn" length="4000" />
+        </property>
+        <property name="robotId" type="string">
+            <column name="robot_id" length="20" />
+        </property>
+        <property name="tag" type="string">
+            <column name="tag" length="1024" />
+        </property>
+        <property name="randint" type="string">
+            <column name="randint" length="50" />
+        </property>
+        <property name="userAgent" type="string">
+            <column name="user_agent" length="4000" />
+        </property>
+        <property name="start" type="string">
+            <column name="start" length="120" />
+        </property>
+        <property name="timegreeting" type="string">
+            <column name="timegreeting" length="50" />
+        </property>
+        <property name="clientIp" type="string">
+            <column name="client_ip" length="50" />
+        </property>
+        <property name="currentDate" type="string">
+            <column name="current_date" length="50" />
+        </property>
+        <property name="HVersion" type="string">
+            <column name="h_version" length="120" />
+        </property>
+        <property name="HLatitude" type="string">
+            <column name="h_latitude" length="50" />
+        </property>
+        <property name="HLongtitude" type="string">
+            <column name="h_longtitude" length="50" />
+        </property>
+        <property name="HCity" type="string">
+            <column name="h_city" length="50" />
+        </property>
+        <property name="HAddr" type="string">
+            <column name="h_addr" length="500" />
+        </property>
+        <property name="HCountry" type="string">
+            <column name="h_country" length="50" />
+        </property>
+        <property name="HAddrdesc" type="string">
+            <column name="h_addrdesc" length="500" />
+        </property>
+        <property name="HStreet" type="string">
+            <column name="h_street" length="500" />
+        </property>
+        <property name="datetime" type="timestamp">
+            <column name="datetime" length="23" />
+        </property>
+        <property name="execStartDatetime" type="timestamp">
+            <column name="exec_start_datetime" length="23" />
+        </property>
+        <set name="tblRequestProperties" table="TBL_REQUEST_PROPERTY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REQUEST_ID" length="120" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblRequestProperty" />
+        </set>
+    </class>
+</hibernate-mapping>

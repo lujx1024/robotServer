@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewUserLastestStatus" table="VIEW_USER_LASTEST_STATUS" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewUserLastestStatusId">
+            <key-property name="userId" type="long">
+                <column name="USER_ID" />
+            </key-property>
+            <key-property name="updateDatetime" type="timestamp">
+                <column name="UPDATE_DATETIME" length="23" />
+            </key-property>
+            <key-property name="wssSessionId" type="string">
+                <column name="WSS_SESSION_ID" length="500" />
+            </key-property>
+            <key-property name="online" type="boolean">
+                <column name="ONLINE" />
+            </key-property>
+            <key-property name="extraInfo" type="string">
+                <column name="EXTRA_INFO" length="1073741823" />
+            </key-property>
+            <key-property name="userGroupId" type="long">
+                <column name="USER_GROUP_ID" />
+            </key-property>
+            <key-property name="userGroupName" type="string">
+                <column name="USER_GROUP_NAME" length="50" />
+            </key-property>
+            <key-property name="userName" type="string">
+                <column name="USER_NAME" length="50" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

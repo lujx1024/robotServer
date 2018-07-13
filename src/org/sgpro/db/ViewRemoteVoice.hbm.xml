@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewRemoteVoice" table="VIEW_REMOTE_VOICE" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewRemoteVoiceId">
+        <key-property name="voiceId" type="java.lang.Long">
+            <column name="VOICE_ID" />
+        </key-property>
+        <key-property name="voiceType" type="java.lang.String">
+            <column name="VOICE_TYPE" length="1"/>
+        </key-property>
+        <key-property name="voiceName" type="java.lang.String">
+            <column name="VOICE_NAME" length="40"/>
+        </key-property>
+        <key-property name="voicePath" type="java.lang.String">
+            <column name="VOICE_PATH"  length="100"/>
+        </key-property>
+        <key-property name="voiceText" type="java.lang.String">
+            <column name="VOICE_TEXT"   length="1000"/>
+        </key-property>
+        <key-property name="voiceCat" type="java.lang.String">
+            <column name="VOICE_CAT"  length="1"/>
+        </key-property>
+        <key-property name="voiceDescripition" type="java.lang.String">
+            <column name="VOICE_DESCRIPTION" length="500"/>
+        </key-property>
+        <key-property name="voiceCommand" type="java.lang.String">
+            <column name="VOICE_COMMAND"  length="10"/>
+        </key-property>
+         <key-property name="voiceCommandParam" type="java.lang.String">
+            <column name="VOICE_COMMAND_PARAM"  length="100"/>
+        </key-property>
+         <key-property name="voiceThirdpardName" type="java.lang.String">
+            <column name="VOICE_THIRDPARTYAPI_NAME"  length="40"/>
+        </key-property>
+         <key-property name="voiceThirdpardMethod" type="java.lang.String">
+            <column name="VOICE_THIRDPARTYAPI_METHOD"  length="10"/>
+        </key-property>
+         <key-property name="voiceThirdpartyapiHeaderparams" type="java.lang.String">
+            <column name="VOICE_THIRDPARTYAPI_HEADERPARAMS"  length="40"/>
+        </key-property>
+         <key-property name="voiceThirdpartyapiUrl" type="java.lang.String">
+            <column name="VOICE_THIRDPARTYAPI_URL"  length="100"/>
+        </key-property>
+         <key-property name="voiceThirdpartyapiResulttype" type="java.lang.String">
+            <column name="VOICE_THIRDPARTYAPI_RESULTTYPE"  length="10"/>
+        </key-property>
+         <key-property name="voiceThirdpartyapiRunatserver" type="java.lang.Boolean">
+            <column name="VOICE_THIRDPARTYAPI_RUNATSERVER"  />
+        </key-property>
+         <key-property name="voiceIncprop" type="java.lang.String">
+            <column name="VOICE_INCPROP"  length="100"/>
+        </key-property>
+         <key-property name="voiceExcerpt" type="java.lang.String">
+            <column name="VOICE_EXCPROP"  length="100"/>
+        </key-property>
+         <key-property name="voiceEmotion" type="java.lang.String">
+            <column name="VOICE_EMOTION"  length="40"/>
+        </key-property>
+         <key-property name="voiceEnabled" type="java.lang.Boolean">
+            <column name="VOICE_ENABLED"  />
+        </key-property>
+         <key-property name="remake1" type="java.lang.String">
+            <column name="REMAKE1"  length="100"/>
+        </key-property>
+         <key-property name="remake2" type="java.lang.String">
+            <column name="REMAKE2"  length="100"/>
+        </key-property>
+         <key-property name="robotSn" type="java.lang.String">
+            <column name="ROBOT_SN"  length="20"/>
+        </key-property>
+        </composite-id>
+    </class>
+    </hibernate-mapping>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.sgpro.db.RemoteVoice" table="REMOTE_VOICE" schema="dbo" catalog="G2Robot">
+           <id name="voiceId" type="long">
+            <column name="VOICE_ID" />
+        </id>
+        <property name="voiceType" type="string">
+            <column name="VOICE_TYPE" />
+        </property>
+        <property name="voiceName" type="string">
+            <column name="VOICE_NAME" />
+        </property>
+        <property name="voicePath" type="string">
+            <column name="VOICE_PATH"  />
+        </property>
+        <property name="voiceText" type="string">
+            <column name="VOICE_TEXT"   />
+        </property>
+        <property name="voiceCat" type="string">
+            <column name="VOICE_CAT"  />
+        </property>
+        <property name="voiceDescripition" type="string">
+            <column name="VOICE_DESCRIPTION" />
+        </property>
+        <property name="voiceCommand" type="string">
+            <column name="VOICE_COMMAND"  />
+        </property>
+         <property name="voiceCommandParam" type="string">
+            <column name="VOICE_COMMAND_PARAM"  />
+        </property>
+         <property name="voiceThirdpardName" type="string">
+            <column name="VOICE_THIRDPARTYAPI_NAME"  />
+        </property>
+         <property name="voiceThirdpardMethod" type="string">
+            <column name="VOICE_THIRDPARTYAPI_METHOD"  />
+        </property>
+         <property name="voiceThirdpartyapiHeaderparams" type="string">
+            <column name="VOICE_THIRDPARTYAPI_HEADERPARAMS"  />
+        </property>
+         <property name="voiceThirdpartyapiUrl" type="string">
+            <column name="VOICE_THIRDPARTYAPI_URL"  />
+        </property>
+         <property name="voiceThirdpartyapiResulttype" type="string">
+            <column name="VOICE_THIRDPARTYAPI_RESULTTYPE"  />
+        </property>
+         <property name="voiceThirdpartyapiRunatserver" type="boolean">
+            <column name="VOICE_THIRDPARTYAPI_RUNATSERVER"  />
+        </property>
+         <property name="voiceIncprop" type="string">
+            <column name="VOICE_INCPROP"  />
+        </property>
+         <property name="voiceExcerpt" type="string">
+            <column name="VOICE_EXCPROP"  />
+        </property>
+         <property name="voiceEmotion" type="string">
+            <column name="VOICE_EMOTION"  />
+        </property>
+         <property name="voiceEnabled" type="boolean">
+            <column name="VOICE_ENABLED"  />
+        </property>
+         <property name="remake1" type="string">
+            <column name="REMAKE1"  />
+        </property>
+         <property name="remake2" type="string">
+            <column name="REMAKE2"  />
+        </property>
+         <property name="robotSn" type="string">
+            <column name="ROBOT_SN"  />
+        </property>
+    </class>
+</hibernate-mapping> -->
+

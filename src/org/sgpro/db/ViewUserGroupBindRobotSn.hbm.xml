@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewUserGroupBindRobotSn" table="VIEW_USER_GROUP_BIND_ROBOT_SN" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewUserGroupBindRobotSnId">
+            <key-property name="robotSn" type="string">
+                <column name="ROBOT_SN" length="50" />
+            </key-property>
+            <key-property name="userGroupId" type="long">
+                <column name="USER_GROUP_ID" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

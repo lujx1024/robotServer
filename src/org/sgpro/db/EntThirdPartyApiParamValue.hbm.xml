@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntThirdPartyApiParamValue" table="ENT_THIRD_PARTY_API_PARAM_VALUE" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="entThirdPartyApi" class="org.sgpro.db.EntThirdPartyApi" fetch="select">
+            <column name="THIRD_PARTY_API_ID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="500" not-null="true" />
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="ENABLED" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="500" />
+        </property>
+        <set name="tblThirdPartyApiParamValues" table="TBL_THIRD_PARTY_API_PARAM_VALUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THIRD_PARTY_API_PARAM_VALUE_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblThirdPartyApiParamValue" />
+        </set>
+        <set name="entVoices" table="ENT_VOICE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THIRD_PARTY_API_PARAMS_VALUE_ID" />
+            </key>
+            <one-to-many class="org.sgpro.db.EntVoice" />
+        </set>
+    </class>
+</hibernate-mapping>

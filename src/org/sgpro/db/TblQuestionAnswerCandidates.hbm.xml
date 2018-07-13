@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblQuestionAnswerCandidates" table="TBL_QUESTION_ANSWER_CANDIDATES" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblQuestionAnswerCandidatesId">
+            <key-property name="questionId" type="long">
+                <column name="QUESTION_ID" />
+            </key-property>
+            <key-property name="label" type="string">
+                <column name="LABEL" length="50" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="tblQuestion" class="org.sgpro.db.TblQuestion" update="false" insert="false" fetch="select">
+            <column name="QUESTION_ID" not-null="true" />
+        </many-to-one>
+        <property name="CIndex" type="long">
+            <column name="C_INDEX" not-null="true" />
+        </property>
+        <property name="CContent" type="string">
+            <column name="C_CONTENT" length="256" not-null="true" />
+        </property>
+        <property name="theAnswer" type="boolean">
+            <column name="THE_ANSWER" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

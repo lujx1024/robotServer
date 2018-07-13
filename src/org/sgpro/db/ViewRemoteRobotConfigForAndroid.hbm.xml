@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewRemoteRobotConfigForAndroid" table="VIEW_REMOTE_ROBOT_CONFIG_FOR_ANDROID" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewRemoteRobotConfigForAndroidId">
+           
+            <key-property name="appKey" type="string">
+                <column name="APP_KEY" length="500" />
+            </key-property>
+            <key-property name="secret" type="string">
+                <column name="SECRET" length="500" />
+            </key-property>
+            <key-property name="accessToken" type="string">
+                <column name="ACCESS_TOKEN" length="100" />
+            </key-property>
+            <key-property name="voideUrl" type="java.lang.String">
+                <column name="VOIDE_URL" length="4000"  />
+            </key-property>
+            <key-property name="controlUrl" type="java.lang.String">
+                <column name="CONTROL_URL" length="4000"  />
+            </key-property>
+            <key-property name="deviceSerial" type="java.lang.String">
+                <column name="DEVICE_SERIAL" length="4000"  />
+            </key-property>
+             <key-property name="deviceName" type="java.lang.String">
+                <column name="DEVICE_NAME" length="4000"  />
+            </key-property>
+             <key-property name="cameraNo" type="java.lang.Integer">
+                <column name="CAMERA_N0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

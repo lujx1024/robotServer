@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntThirdPartyApi" table="ENT_THIRD_PARTY_API" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="enable" type="boolean">
+            <column name="ENABLE" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="URL" length="500" not-null="true" />
+        </property>
+        <property name="method" type="string">
+            <column name="METHOD" length="50" not-null="true" />
+        </property>
+        <property name="runAtServer" type="boolean">
+            <column name="RUN_AT_SERVER" not-null="true" />
+        </property>
+        <property name="resultType" type="string">
+            <column name="RESULT_TYPE" length="50" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="500" />
+        </property>
+        <set name="tblThirdPartyApiParamses" table="TBL_THIRD_PARTY_API_PARAMS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THIRD_PARTY_API_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblThirdPartyApiParams" />
+        </set>
+        <set name="entThirdPartyApiParamsValues" table="ENT_THIRD_PARTY_API_PARAMS_VALUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THIRD_PARTY_API_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.EntThirdPartyApiParamsValue" />
+        </set>
+        <set name="tblThirdPartyApiParams" table="TBL_THIRD_PARTY_API_PARAM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THIRD_PARTY_API_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblThirdPartyApiParam" />
+        </set>
+        <set name="entThirdPartyApiParamValues" table="ENT_THIRD_PARTY_API_PARAM_VALUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THIRD_PARTY_API_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.EntThirdPartyApiParamValue" />
+        </set>
+        <set name="entVoices" table="ENT_VOICE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THIRD_PARTY_API_ID" />
+            </key>
+            <one-to-many class="org.sgpro.db.EntVoice" />
+        </set>
+    </class>
+</hibernate-mapping>

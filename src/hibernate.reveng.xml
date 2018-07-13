@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="ENT_ADMIN" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_BIZ_MENU_ENTRY"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_CONFIG" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_CONFIG_BAKUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_CONFIG_MODULE_BIT_MASK"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_CUSTOMER" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_DB_VERSION" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_DIALOG" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_DIALOG_BACKUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_ENTITY" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_EXAM" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_FEEDBACK" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter
+		match-name="ENT_HUAQIN_2016_PROVIDER_CONFRENCE_COMPANY"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_HW_SPEC" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_INDUSTRY" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_KEY_WORDS" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_OPERATION" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_PINYIN" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_PINYIN2" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_PINYIN3" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_PINYIN4" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_PINYIN_COVERTOR"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_REQUEST" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_RESOURCE" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_ROBOT" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_ROBOT_APP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_ROOM" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_RTC_SESSION_STATUS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_SYSTEM_META_SETTINGS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_THIRD_PARTY_API"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_THIRD_PARTY_API_PARAMS_VALUE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_USER" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_USER_GROUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_VISITORS" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_VOICE" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_VOICE_COMMAND" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_VOICE_GROUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_WORD_GROUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_WORD_GROUP_FLOW"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_BIZ_MENUITEM_ACTION"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_BIZ_MENUTREE" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_CUSTOMIZED_CONFIG_FOR_HW_SPEC"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_CUSTOMIZED_CONFIG_FOR_INDUSTRY"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_CUSTOMIZED_CONFIG_FOR_ROBOT"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_CUSTOMIZED_CONFIG_FOR_USER_GROUP"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter
+		match-name="TBL_CUSTOMIZED_CONFIG_FOR_USER_GROUP_SCENE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter
+		match-name="TBL_HUAQIN_2016_PROVIDER_CONFRENCE_PATICIPANTS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_INHERIT_CONFIG_FOR_ROBOT"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_INHERIT_CONFIG_FOR_USER_GROUP"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ML_DIALOG" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_NEWS" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_OPERATION_LOG" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ORDER_ROOM" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_QUESTION" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_QUESTION_ANSWER_CANDIDATES"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_REQUEST_PROPERTY"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_REQUEST_PROPERTY_BACKUP"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_REQUEST_RECOMMEND"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_APP_EXCLUDE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_APP_EXCLUSIVE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_APP_VERSION"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_APP_VERSION_REQUIRED"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_MANUAL_TALK_CACHE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_OFFER_SESSION"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_SESSION_CONTEXT"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_STATUS" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_ROBOT_TAGS" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_RTC_SESSION" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_RTC_SESSION_SIGNAL_CACHE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_RTC_SESSION_STATUS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_RUNTIME" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_RUNTIME_BACKUP"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_RUNTIME_DATA" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_RUNTIME_DATA_BACKUP"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_THIRD_PARTY_API_PARAMS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_THIRD_PARTY_API_PARAMS_VALUE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_USER_GROUP_SCENE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_USER_OFFER_SESSION"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_USER_STATUS" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_VERSION_REQUIRED"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_VOICE_GROUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_VOICE_TAG" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_WORD_GROUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_WORD_GROUP_FLOW"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter
+		match-name="TBL_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_ORIGNAL"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_BIZ_MENUTREE" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_CHAT_HISTORY" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_CONFIG" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_CONFIG_COMMON"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_CONFIG_INDUSTRY"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_CONFIG_MODULE_BIT_MASK"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_CONFIG_ROBOT" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_CONFIG_USER_GROUP"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_CONFIG_USER_GROUP_SCENE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_DIALOG_UNKNOW"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ENDPOINT_LATEST_STATUS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ENTITY" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_FLOW_VOICE_RULE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_HUAQIN_2016_PROIVDER_CONFRENCE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_KEY_WORDS_SIMPLE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_KEY_WORD_GROUP"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_NVP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ORDER_ROOM" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_REQUEST_PROPERTY"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_APP_BIND_LIST"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_APP_LASTEST_UPDATETIME"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_APP_LASTEST_VERSION"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_APP_LASTEST_VERSION_CODE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_APP_VERSION"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_APP_VERSION_REQUIRED"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_BELONG" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_CONFIG" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_CONFIG_FOR_APP"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_CONFIG_FOR_EDITOR"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_CONFIG_FOR_EDITOR_MAIN"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_CONFIG_WITH_OWNER"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_LATEST_STATUS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_LATEST_STATUS_drop"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_MANUAL_TALK_CACHE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_MAX_PRIORITY_CONFIG"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_MAX_PRIORITY_CONFIG_WITH_OWNER"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_STATUS_LASTEST_UPDATETIME"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_TAGS" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_ROBOT_USER_BINDLIST"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_RTC_SESSION_STATUS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter
+		match-name="VIEW_RTC_SESSION_STATUS_LASTEST_UPDATETIME"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_THIRD_PARTY_PARAMS_VALUE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_THIRD_PARTY_SIMPLE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_TODAY_CHAT_TIMELINE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_USER_GROUP_BIND_ROBOT_SN"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_USER_GROUP_SCENE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_USER_LASTEST_STATUS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_USER_ROBOT_BIND_LIST"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_USER_STATUS_LASTEST_UPDATETIME"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_VALID_THIRD_PARTY_API"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_VALID_THIRD_PARTY_API_PARAMS"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_VALID_THIRD_PARTY_API_PARAMS_VALUE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_VALUE" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_VOICE" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_VOICE_GROUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_VOICE_GROUP_SIMPLE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_VOICE_SIMPLE" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_WORD_GROUP" match-catalog="G2Robot"
+		match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_WORD_GROUP_FLOW"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_WORD_GROUP_FLOW_SIMPLE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter
+		match-name="VIEW_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_ORIGNAL"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter
+		match-name="VIEW_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_ORIGNAL_V2"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter
+		match-name="VIEW_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_SIMPLE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_WORD_GROUP_SIMPLE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_THIRD_PARTY_API_PARAM_VALUE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_THIRD_PARTY_API_PARAM"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="TBL_THIRD_PARTY_API_PARAM_VALUE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="ENT_THIRD_PARTY_API_PARAM"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_THIRD_PARTY_PARAM_SIMPLE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_THIRD_PARTY_API_PARAM_VALUE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_THIRD_PARTY_PARAM_VALUE_SIMPLE"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+	<table-filter match-name="VIEW_THIRD_PARTY_API_PARAM_VALUE_ITEM"
+		match-catalog="G2Robot" match-schema="dbo">
+	</table-filter>
+</hibernate-reverse-engineering>

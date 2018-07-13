@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntFeedback" table="ENT_FEEDBACK" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="user" type="string">
+            <column name="USER" length="50" not-null="true" />
+        </property>
+        <property name="EMail" type="string">
+            <column name="E_MAIL" length="128" not-null="true" />
+        </property>
+        <property name="title" type="string">
+            <column name="TITLE" length="256" not-null="true" />
+        </property>
+        <property name="content" type="string">
+            <column name="CONTENT" length="4000" not-null="true" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="TIME" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

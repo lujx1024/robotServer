@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-30 16:45:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntThirdPartyApiParamsValue" table="ENT_THIRD_PARTY_API_PARAMS_VALUE" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.EntThirdPartyApiParamsValueId">
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="thirdPartyApiId" type="long">
+                <column name="THIRD_PARTY_API_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entThirdPartyApi" class="org.sgpro.db.EntThirdPartyApi" update="false" insert="false" fetch="join">
+            <column name="THIRD_PARTY_API_ID" not-null="true" />
+        </many-to-one>
+        <property name="enabled" type="boolean">
+            <column name="ENABLED" not-null="true" />
+        </property>
+        <property name="descirption" type="string">
+            <column name="DESCIRPTION" length="50" />
+        </property>
+        <set name="tblThirdPartyApiParamsValues" table="TBL_THIRD_PARTY_API_PARAMS_VALUE" inverse="true" lazy="false" fetch="join">
+            <key>
+                <column name="ID" not-null="true" />
+                <column name="THIRD_PARTY_API_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblThirdPartyApiParamsValue" />
+        </set>
+        <set name="entVoices" table="ENT_VOICE" inverse="true" lazy="false" fetch="join">
+            <key>
+                <column name="THIRD_PARTY_API_PARAMS_VALUE_ID" />
+                <column name="THIRD_PARTY_API_ID" />
+            </key>
+            <one-to-many class="org.sgpro.db.EntVoice" />
+        </set>
+    </class>
+</hibernate-mapping>

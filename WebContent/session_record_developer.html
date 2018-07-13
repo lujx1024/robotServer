@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>奥拓智能机器人后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="js/jsonview/jquery.jsonview.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jsonview/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/calender/laydate.dev.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="developerjs/session_record.js"></script>
+</head>
+<body>
+	<div style="position:relative">
+		<div class="sidebar">
+			<div class="menu_bar">
+				<i class="icon-reorder"></i>
+			</div>
+			<ul class="menu">
+				<li><a href="robots_developer.html"><i class="fa fa-android  fa-2x fa-fw" style="color:#2aaf00;margin-left:0px;"></i><span>机器人列表</span></a></li>
+				<li><a href="setConfig_all.html"><i class="fa fa-cog fa-2x fa-fw" style="color:#0A62E3; "></i><span>开发者配置</span></a></li>
+				<li><a href="config_manage.html"><i class="fa fa-th-large fa-2x fa-fw" style="color:#f70019"></i><span>配置项管理</span></a></li>
+				<li><a href="log_developer.html"><i class="fa fa-file-text-o fa-2x fa-fw" style="color:#4B0AD8"></i><span>系统日志</span></a></li>
+				<li><a href="javascript:;" class="current"><i class="fa fa-list-ol fa-2x fa-fw" style="color:#d900f1"></i><span>会话记录</span></a></li>
+				<li><a href="configConvert_developer.html"><i class="fa fa-object-group fa-2x fa-fw" style="color:#ffb914;"></i><span>复制配置</span></a></li>
+				<li><a href="userManage_developer.html"><i class="fa fa-object-group fa-2x fa-fw" style="color:#ffb914;"></i><span>用户管理</span></a></li>
+			</ul>
+		</div>
+		<div class="wapper_content">
+			<div class="table_bar"  style="text-decoration:blink">会话记录</div>
+			<div class="table_container">
+				<section class="setconfig_all_robot">
+					<select id="setconfig_qiye"><option value="0">所有企业</option></select>
+					<select id="setconfig_robots"><option value="null">所有机器人</option></select>
+				</section>
+				<div class="session_box">
+					<div class="session_content" style="display:block">
+						<section class="addsearch_box clearfix">
+							<div class="session_time">	
+								<div class="session_record clearfix">
+									<input type="radio" name="minute" checked="checked" class="session_recoed_notime
+									">
+									<span>今天的记录</span>
+									<input type="radio" name="minute" class="session_recoed_time">
+									<span>以往记录</span>
+								</div>
+								<div class="log_definedtime clearfix">
+									<input type="text" class="fl" id="log_strat"><span class="fl">至</span><input type="text" class="fl" id="log_end">
+								</div>
+							</div>
+							<div class="clearfix" style="margin-top:20px;">
+								<div class="session_category">
+									<label>选择类别：</label>
+									<select id="session_catelist">
+										<option value="null">全部</option>
+										<option value="1">螺趣语义</option>
+										<option value="2">无法回答</option>
+										<option value="3">外部语义</option>
+										<option value="4">第三方/客户提交</option>
+										<option value="5">人工模式</option>
+									</select>
+								</div>
+								<div class="search_box">
+									<input type="text" placeholder="提问/回复" id="search_ipt"><label id="search_text">搜 索</label>
+								</div>
+							</div>			
+						</section>
+						<section class="table_box">
+							<div class="table_content">
+								<table id="table"></table>
+							</div>
+							<div class="clearfix">
+								<span class="counts fl">总计<span class="counts_page"></span>页，<span class="counts_num"></span>条数据</span>
+								<div class="pageBox fr"></div> 
+							</div>
+						</section>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

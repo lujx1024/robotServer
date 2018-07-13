@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewValidThirdPartyApi" table="VIEW_VALID_THIRD_PARTY_API" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewValidThirdPartyApiId">
+            <key-property name="name" type="string">
+                <column name="NAME" length="50" />
+            </key-property>
+            <key-property name="url" type="string">
+                <column name="URL" length="500" />
+            </key-property>
+            <key-property name="method" type="string">
+                <column name="METHOD" length="50" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="500" />
+            </key-property>
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="runAtServer" type="boolean">
+                <column name="RUN_AT_SERVER" />
+            </key-property>
+            <key-property name="resultType" type="string">
+                <column name="RESULT_TYPE" length="4000" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

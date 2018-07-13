@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewVoiceSimple" table="VIEW_VOICE_SIMPLE" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewVoiceSimpleId">
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="NAME" length="50" />
+            </key-property>
+            <key-property name="path" type="string">
+                <column name="PATH" length="1024" />
+            </key-property>
+            <key-property name="emotion" type="string">
+                <column name="EMOTION" length="1024" />
+            </key-property>
+            <key-property name="text" type="string">
+                <column name="TEXT" length="4000" />
+            </key-property>
+            <key-property name="command" type="long">
+                <column name="COMMAND" />
+            </key-property>
+            <key-property name="commandParam" type="string">
+                <column name="COMMAND_PARAM" length="1073741823" />
+            </key-property>
+            <key-property name="thirdPartyApiId" type="long">
+                <column name="THIRD_PARTY_API_ID" />
+            </key-property>
+            <key-property name="thirdPartyApiName" type="string">
+                <column name="THIRD_PARTY_API_NAME" length="50" />
+            </key-property>
+            <key-property name="thirdPartyApiParamsValueId" type="long">
+                <column name="THIRD_PARTY_API_PARAMS_VALUE_ID" />
+            </key-property>
+            <key-property name="thirdPartyApiParamValueName" type="string">
+                <column name="THIRD_PARTY_API_PARAM_VALUE_NAME" length="500" />
+            </key-property>
+            <key-property name="incProp" type="string">
+                <column name="INC_PROP" length="800" />
+            </key-property>
+            <key-property name="excProp" type="string">
+                <column name="EXC_PROP" length="800" />
+            </key-property>
+            <key-property name="cat" type="string">
+                <column name="CAT" length="50" />
+            </key-property>
+            <key-property name="enabled" type="boolean">
+                <column name="ENABLED" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="1024" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

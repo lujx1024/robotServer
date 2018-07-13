@@ -1,0 +1,558 @@
+<html>
+<head> <meta http-equiv=Content-Type content="text/html;charset=utf-8"> 
+<title>奥拓智能机器人后台管理 - 登录</title>
+<STYLE>
+body {
+	background: #ebebeb;
+	font-family: "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei",
+		"\9ED1\4F53", Arial, sans-serif;
+	color: #222;
+	font-size: 12px;
+}
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+.top_div {
+	background: #008ead;
+	width: 100%;
+	height: 200px;
+}
+
+.ipt {
+	border: 1px solid #d3d3d3;
+	padding: 10px 10px;
+	width: 290px;
+	border-radius: 4px;
+	padding-left: 35px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.ipt:focus {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6)
+}
+
+.u_logo {
+	background: url("images/username.png") no-repeat;
+	padding: 10px 10px;
+	position: absolute;
+	top: 43px;
+	left: 60px;
+}
+
+.p_logo {
+	background: url("images/password.png") no-repeat;
+	padding: 10px 10px;
+	position: absolute;
+	top: 12px;
+	left: 60px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.tou {
+	background: url("images/tou.png") no-repeat;
+	width: 97px;
+	height: 92px;
+	position: absolute;
+	top: -87px;
+	left: 140px;
+}
+
+.left_hand {
+	background: url("images/left_hand.png") no-repeat;
+	width: 32px;
+	height: 37px;
+	position: absolute;
+	top: -38px;
+	left: 150px;
+}
+
+.right_hand {
+	background: url("images/right_hand.png") no-repeat;
+	width: 32px;
+	height: 37px;
+	position: absolute;
+	top: -38px;
+	right: -64px;
+}
+
+.initial_left_hand {
+	background: url("images/hand.png") no-repeat;
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	top: -12px;
+	left: 100px;
+}
+
+.initial_right_hand {
+	background: url("images/hand.png") no-repeat;
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	top: -12px;
+	right: -112px;
+}
+
+.left_handing {
+	background: url("images/left-handing.png") no-repeat;
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	top: -24px;
+	left: 139px;
+}
+
+.right_handinging {
+	background: url("images/right_handing.png") no-repeat;
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	top: -21px;
+	left: 210px;
+}
+</STYLE>
+
+</head>
+<body>
+<!-- 
+<div id="my_mgr_title">我管理的机器人</div>
+ -->
+<div id="my_mgr_list">
+
+</div>
+
+    <video id="localVideo" style="visibility: hidden;"  autoplay ></video><br>
+    <video id="remoteVideo" style="visibility: hidden;" autoplay></video>
+ 
+    
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js">
+    </script>
+    
+<!-- 
+ <script type="text/javascript" src="login.js" ></SCRIPT>
+ -->
+<script type="text/javascript" src="js/layer/layer.js" ></SCRIPT>
+
+<SCRIPT type="text/javascript">
+
+var socket = null;  
+var robotList = null;   
+var loginDialog = null;
+var loginTip = null;
+var tipIndex = 0;
+
+	$(function() {
+		//得到焦点
+		$("#password").focus(function() {
+			$("#left_hand").animate({
+				left : "150",
+				top : " -38"
+			}, {
+				step : function() {
+					if (parseInt($("#left_hand").css("left")) > 140) {
+						$("#left_hand").attr("class", "left_hand");
+					}
+				}
+			}, 2000);
+			$("#right_hand").animate({
+				right : "-64",
+				top : "-38px"
+			}, {
+				step : function() {
+					if (parseInt($("#right_hand").css("right")) > -70) {
+						$("#right_hand").attr("class", "right_hand");
+					}
+				}
+			}, 2000);
+		});
+		//失去焦点
+		$("#password").blur(function() {
+			$("#left_hand").attr("class", "initial_left_hand");
+			$("#left_hand").attr("style", "left:100px;top:-12px;");
+			$("#right_hand").attr("class", "initial_right_hand");
+			$("#right_hand").attr("style", "right:-112px;top:-12px");
+		});
+	});
+	
+	(function( $ ) {
+		  // constants
+		  var SHOW_CLASS = 'show',
+		      HIDE_CLASS = 'hide',
+		      ACTIVE_CLASS = 'active';
+		  
+		  $( '.tabs' ).on( 'click', 'li a', function(e){
+		    e.preventDefault();
+		    var $tab = $( this ),
+		         href = $tab.attr( 'href' );
+		  
+		     $( '.active' ).removeClass( ACTIVE_CLASS );
+		     $tab.addClass( ACTIVE_CLASS );
+		  
+		     $( '.show' )
+		        .removeClass( SHOW_CLASS )
+		        .addClass( HIDE_CLASS )
+		        .hide();
+		    
+		      $(href)
+		        .removeClass( HIDE_CLASS )
+		        .addClass( SHOW_CLASS )
+		        .hide()
+		        .fadeIn( 550 );
+		  });
+		})( jQuery );
+	
+	
+	var host = "www.robotcheers.com";
+	
+	function initWebSocket(userName, password) {
+	    // 与信令服务器的WebSocket连接
+	    
+	    var loginData = 
+	    {
+	    	"cmd" : "login",
+	      	"data" :{"username" : userName, "password" : password, "useragent" : navigator.userAgent}
+	    };
+	    
+	    if (socket == null) {
+	    	socket = new WebSocket("wss://" + host + "/signalmaster/ws");     
+		    
+		    socket.onopen = function(arg) {
+		        socket.send(JSON.stringify(loginData) );  
+		    };
+		    
+		    socket.onclose = function(arg) {
+		    	console.log('closed');
+		    	window.close();
+	 
+		    	layer.alert('与服务器的网络连接已断开，请检查网络设置！', {
+		    		  skin: 'layui-layer-demo' //样式类名
+		    		  ,closeBtn: 0
+		    		}, function(){
+		    		  login();
+		    		});	    	
+		    };
+		    socket.onerror = function(arg) {
+		    	alert("error:" + arg);
+		    }
+		    socket.onmessage = function (event) {
+		    	var json = JSON.parse(event.data);
+				console.log(json.data);
+				if (json.cmd === 'error') {
+					layer.close(tipIndex);
+					layer.alert('发生错误，状态码：[' + json.code + "]，原因：" + json.message
+							, {icon: 5
+						, title:'登录失败'
+						, area: ['420px', '180px']
+						, end : function (){$('#userName').select();}
+					});
+		     	} else if (json.cmd === 'login_done') {
+		    		robotList = json.data;
+		    		layer.closeAll();
+		    		refreshRobotListView();
+		    		getMedia();
+		    	} else if (json.cmd === 'endpoint_status_changed') {
+		    		var changedRobot = json.data;
+		        	for (var i = 0 ; i < robotList.length; i++) {
+		        		var robot = robotList[i];
+		        		if (robot.robotId == changedRobot.id) {
+		        			robot.robotLatestStatusOnline = changedRobot.online;
+		        			break;
+		        		}
+		        	}
+		        	refreshRobotListView();
+		        } 
+		    };
+	    } else {
+	    	socket.send(JSON.stringify(loginData) ); 
+	    }
+	}	
+	
+	function login()  {
+		// alert(0);
+		
+		if ($("#userName").val() == '') {
+			layer.tips('用户名不能为空', '#userName');
+			$('#userName').select();
+			return;
+		}
+		
+		if ($("#password").val() == '') {
+			layer.tips('密码不能为空', '#password');
+			$("#password").select();
+			return;
+		}
+		
+		tipIndex = layer.load(0, {shade: false});
+		
+		initWebSocket($("#userName").val(), $("#password").val());
+	}
+</SCRIPT>
+    
+    
+    <script>
+    
+    var localMediaStream = null;
+    var robotInitiate;
+    
+    function connect(senderId, targetId){
+        // stun和turn服务器
+        
+        // alert('connect:' + targetId);
+        
+        var iceServer =
+        { 
+       	  'iceServers': [
+       		    { 'url' : 'stun:120.26.60.161'} ,
+       		    { 'url' : 'turn:120.26.60.161',  'username' : 'sgpro',  credential : '4445632'}
+       		  ]
+        };
+         
+        // 创建PeerConnection实例 (参数为null则没有iceserver，即使没有stunserver和turnserver，仍可在局域网下通讯)
+        var pc = new webkitRTCPeerConnection(iceServer);
+
+        //向PeerConnection中加入需要发送的流
+        pc.addStream(localMediaStream);
+
+        // 发送offer和answer的函数，发送本地session描述
+        var sendOfferFn = function(desc){
+        	// 用户发起
+        	robotInitiate = false;
+            pc.setLocalDescription(desc);
+            socket.send(JSON.stringify({ 
+                "cmd": "offer",
+                "data": {
+                    "sdp": desc,
+                    "sender" : senderId,
+                    "target" : targetId 
+                }
+            }));
+        },
+        sendAnswerFn = function(desc){
+        	// 机器人发起
+        	robotInitiate = true;
+            pc.setLocalDescription(desc);
+            socket.send(JSON.stringify({ 
+                "cmd": "answer",
+                "data": {
+                    "sdp": desc,
+                    "sender" : senderId,
+                    "target" : targetId 
+                }
+            }));
+        };
+        
+        // 发送ICE候选到其他客户端
+        pc.onicecandidate = function(event){
+            if (event.candidate !== null) {
+            	// alert(JSON.stringify(event.candidate));
+            	console.log("SEND candidate:" + JSON.stringify(event.candidate));
+                socket.send(JSON.stringify({
+                    "cmd": "candidate",
+                    "data": {
+                        "candidate": event.candidate,
+                        "sender" : senderId,
+                        "target" : targetId 
+                    }
+                }));
+            }
+        };
+        
+        pc.oniceconnectionstatechange = function (arg) {
+        	console.log('oniceconnectionstatechange');
+        	console.log(arg);
+        	console.log(pc.iceConnectionState);
+        	
+            socket.send(JSON.stringify({
+                "cmd": "connection_state_changed",
+                "data": {
+                    "state": pc.iceConnectionState,
+                    "sender" : senderId,
+                    "target" : targetId, 
+                    "robotInitiate" : robotInitiate
+                }
+            }));
+        }
+        
+        pc.onsignalingstatechange = function (arg) {
+        	console.log('onsignalingstatechange');
+        	console.log(arg);
+        	console.log(pc.signalingState);
+        }
+        
+        pc.ondatachannel = function (arg) {
+        	console.log('ondatachannel');
+        	console.log(arg);
+        }
+        
+        
+        //如果是发起方则发送一个offer信令
+        pc.createOffer(sendOfferFn, function (error) {
+            console.log('Failure callback: ' + error);
+        });
+        
+        //处理到来的信令
+        socket.onmessage = function(event){
+            var json = JSON.parse(event.data);
+            console.log(event);
+            console.log('onmessage: ', json);
+            //如果是一个ICE的候选，则将其加入到PeerConnection中，否则设定对方的session描述为传递过来的描述
+         	if (json.cmd === 'error') {
+         		alert('发生错误：[' + json.code + "]:" + json.message);
+         	} else if (json.cmd === 'endpoint_status_changed') {
+            	// $("#" + json.id).text("");            	
+            	// json.online
+            	var changedRobot = json.data;
+            	console.log('before', robotList);
+            	for (i = 0 ; i < robotList.length; i++) {
+            		var robot = robotList[i];
+            		if (robot.robotId == changedRobot.id) {
+            			robot.robotLatestStatusOnline = changedRobot.online;
+            			break;
+            		}
+            	}
+            	console.log('after', robotList);
+            	
+            	refreshRobotListView();
+            } else if( json.cmd === "candidate" ){
+            	console.log('received candiate: ');
+            	console.log(json.data.candidate);
+                pc.addIceCandidate(new RTCIceCandidate(json.data.candidate));
+            } else {
+            	// 
+            	console.log('set remote sdp:' );
+            	console.log(json.data.sdp);
+                pc.setRemoteDescription(new RTCSessionDescription(json.data.sdp));
+                // 如果是一个offer，那么需要回复一个answer
+                if(json.cmd === "offer") {
+                	console.log('received offer');
+
+                	pc.createAnswer(sendAnswerFn, function (error) {
+                        console.log('Failure callback: ' + error);
+                    });
+                }
+            }
+        }; 
+        
+        // 如果检测到媒体流连接到本地，将其绑定到一个video标签上输出
+        pc.onaddstream = function(event){
+        	console.log('on remote stream');
+        	console.log(event.stream);
+            document.getElementById('remoteVideo').src = URL.createObjectURL(event.stream);
+        };
+    }
+    
+    function refreshRobotListView() {
+		var i = 0;
+		var all = "";
+		var item;
+		
+		var userName = "NONAME";
+		for (i =0 ; i < robotList.length; i++)
+		{
+			var robot = robotList[i];
+			
+			item = "<ul><button id='" + robot.robotId + "'" 
+			+ (robot.robotLatestStatusOnline? "" : "disabled=disabled") 
+			+ " onclick=connect(" + robot.userId + "," + robot.robotId + ")>" 
+			+ robot.robotName + "(NO." + robot.robotImei + ")"+ " - "
+			+ (robot.robotLatestStatusOnline? "在线" : "离线") + "</button></ul>"
+			all = all + item;
+			
+			userName = robot.userName + "";
+		}
+		
+		$("#my_mgr_list").html(all);
+		$("#my_mgr_title").text(userName + "成功登录，所管理的机器人");
+
+    }
+    
+    function getMedia() {
+    	  // 获取本地音频和视频流
+        navigator.webkitGetUserMedia({
+            "audio": true
+            , "video": true
+        }, function(stream){
+            //绑定本地媒体流到video标签用于输出
+            document.getElementById('localVideo').src = URL.createObjectURL(stream);
+            localMediaStream = stream; 
+        }, function(error){
+            //处理媒体流创建失败错误
+            console.log('getUserMedia error: ' + error);
+        });
+    }
+    
+    var loginDialogHtml = '\
+    	<DIV class="top_div"></DIV>\
+    	<DIV\
+    		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 200px; text-align: center;">\
+    		<DIV style="width: 165px; height: 96px; position: absolute;">\
+    			<DIV class="tou"></DIV>\
+    			<DIV class="initial_left_hand" id="left_hand"></DIV>\
+    			<DIV class="initial_right_hand" id="right_hand"></DIV>\
+    		</DIV>\
+    		<P style="padding: 30px 0px 10px; position: relative;">\
+    			<SPAN class="u_logo"></SPAN> <INPUT class="ipt"  id = "userName" type="text"\
+    				placeholder="输入用户名" value="">\
+    		</P>\
+    		<P style="position: relative;">\
+    			<SPAN class="p_logo"></SPAN> <INPUT class="ipt" id="password"\
+    				type="password"  id = "password" placeholder="输入密码" value="">\
+    		</P>\
+    		<DIV\
+    			style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">\
+    			<P style="margin: 0px 35px 20px 45px;">\
+    				<SPAN style="float: left;"><A\
+    					style="color: rgb(204, 204, 204);" href="#">忘记密码</A></SPAN> <SPAN\
+    					style="float: right;"><A\
+    					style="color: rgb(204, 204, 204); margin-right: 10px;" href="#">注册</A>\
+    					<A\
+    					style="background: rgb(0, 142, 173); padding: 7px 10px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;"\
+    					href="#" onclick="login();">登录</A> </SPAN>\
+    			</P>\
+    		</DIV>\
+    	</DIV>\
+    	<div style="text-align: center;"></div>\
+    ';
+    
+    if (robotList == null) {
+    	//页面层
+    	// alert(0);
+    	loginDialog = 
+    	layer.open({
+    	  title : '登录奥拓智能机器人管理系统',
+    	  type: 1,
+    	  skin: 'layui-layer-rim', //加上边框
+    	  area: ['600px', '450px'], //宽高
+    	  content: loginDialogHtml
+    	});
+    }
+
+    var fKeyToLogin =
+		function(event){
+		if (event.keyCode == 13) {
+			login();
+		}
+	};
+
+    
+    $("#userName").keypress(fKeyToLogin);
+    $("#password").keypress(fKeyToLogin);
+    </script>
+</body>

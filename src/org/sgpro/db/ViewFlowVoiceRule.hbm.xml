@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewFlowVoiceRule" table="VIEW_FLOW_VOICE_RULE" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewFlowVoiceRuleId">
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="flowId" type="long">
+                <column name="FLOW_ID" />
+            </key-property>
+            <key-property name="flowName" type="string">
+                <column name="FLOW_NAME" length="50" />
+            </key-property>
+            <key-property name="voiceId" type="long">
+                <column name="VOICE_ID" />
+            </key-property>
+            <key-property name="voiceName" type="string">
+                <column name="VOICE_NAME" length="50" />
+            </key-property>
+            <key-property name="enable" type="boolean">
+                <column name="ENABLE" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="50" />
+            </key-property>
+            <key-property name="useFullyMatch" type="boolean">
+                <column name="USE_FULLY_MATCH" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

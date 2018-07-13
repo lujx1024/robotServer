@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntUserGroup" table="ENT_USER_GROUP" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="entIndustry" class="org.sgpro.db.EntIndustry" fetch="select">
+            <column name="INDUSTRY_ID" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="tag" type="string">
+            <column name="TAG" length="50" not-null="true" unique="true" />
+        </property>
+        <set name="entRobotApps" table="TBL_ROBOT_APP_EXCLUDE" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="USER_GROUP_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="org.sgpro.db.EntRobotApp">
+                <column name="ROBOT_APP_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="tblInheritConfigForUserGroups" table="TBL_INHERIT_CONFIG_FOR_USER_GROUP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USER_GROUP_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblInheritConfigForUserGroup" />
+        </set>
+        <set name="tblCustomizedConfigForUserGroups" table="TBL_CUSTOMIZED_CONFIG_FOR_USER_GROUP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USER_GROUP_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblCustomizedConfigForUserGroup" />
+        </set>
+        <set name="entRobotApps_1" table="TBL_ROBOT_APP_EXCLUSIVE" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="USER_GROUP_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="org.sgpro.db.EntRobotApp">
+                <column name="ROBOT_APP_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="tblUserGroupScenes" table="TBL_USER_GROUP_SCENE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USER_GROUP_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblUserGroupScene" />
+        </set>
+        <set name="entUsers" table="ENT_USER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USER_GROUP_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.EntUser" />
+        </set>
+    </class>
+</hibernate-mapping>

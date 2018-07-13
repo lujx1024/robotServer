@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblMlDialog" table="TBL_ML_DIALOG" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblMlDialogId">
+            <key-property name="robotImei" type="string">
+                <column name="ROBOT_IMEI" length="50" />
+            </key-property>
+            <key-property name="text" type="string">
+                <column name="TEXT" length="500" />
+            </key-property>
+            <key-property name="answer" type="string">
+                <column name="ANSWER" length="1073741823" />
+            </key-property>
+            <key-property name="provider" type="string">
+                <column name="PROVIDER" length="30" />
+            </key-property>
+            <key-property name="createDatetime" type="timestamp">
+                <column name="CREATE_DATETIME" length="23" />
+            </key-property>
+            <key-property name="updateDatetime" type="timestamp">
+                <column name="UPDATE_DATETIME" length="23" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

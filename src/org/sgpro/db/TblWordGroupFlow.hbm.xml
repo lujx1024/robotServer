@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblWordGroupFlow" table="TBL_WORD_GROUP_FLOW" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblWordGroupFlowId">
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="wordGroupId" type="long">
+                <column name="WORD_GROUP_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entWordGroupFlow" class="org.sgpro.db.EntWordGroupFlow" update="false" insert="false" fetch="select">
+            <column name="ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entWordGroup" class="org.sgpro.db.EntWordGroup" update="false" insert="false" fetch="select">
+            <column name="WORD_GROUP_ID" not-null="true" />
+        </many-to-one>
+        <property name="groupFlowOrder" type="java.lang.Long">
+            <column name="GROUP_FLOW_ORDER" />
+        </property>
+        <property name="useSound" type="boolean">
+            <column name="USE_SOUND" not-null="true" />
+        </property>
+        <property name="inc1Exc0" type="boolean">
+            <column name="INC_1_EXC_0" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="1024" />
+        </property>
+    </class>
+</hibernate-mapping>

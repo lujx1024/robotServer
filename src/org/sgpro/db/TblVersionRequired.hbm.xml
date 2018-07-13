@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblVersionRequired" table="TBL_VERSION_REQUIRED" schema="dbo" catalog="G2Robot">
+        <id name="dbVersion" type="string">
+            <column name="DB_VERSION" length="50" />
+            <generator class="foreign">
+                <param name="property">entDbVersion</param>
+            </generator>
+        </id>
+        <one-to-one name="entDbVersion" class="org.sgpro.db.EntDbVersion" constrained="true"></one-to-one>
+        <property name="requriedClientVersion" type="string">
+            <column name="REQURIED_CLIENT_VERSION" length="200" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

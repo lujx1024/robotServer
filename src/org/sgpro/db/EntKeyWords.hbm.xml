@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntKeyWords" table="ENT_KEY_WORDS" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="kw" type="string">
+            <column name="KW" length="8" not-null="true" unique="true" />
+        </property>
+        <property name="cat" type="long">
+            <column name="CAT" not-null="true" />
+        </property>
+        <property name="sound" type="string">
+            <column name="SOUND" length="128" not-null="true" />
+        </property>
+        <set name="tblWordGroups" table="TBL_WORD_GROUP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="KEY_WORD_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblWordGroup" />
+        </set>
+    </class>
+</hibernate-mapping>

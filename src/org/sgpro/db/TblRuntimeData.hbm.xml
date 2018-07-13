@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblRuntimeData" table="TBL_RUNTIME_DATA" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="robotId" type="string">
+            <column name="ROBOT_ID" length="50" not-null="true" />
+        </property>
+        <property name="app" type="string">
+            <column name="APP" length="4000" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="50" not-null="true" />
+        </property>
+        <property name="msg" type="string">
+            <column name="MSG" length="4000" not-null="true" />
+        </property>
+        <property name="details" type="string">
+            <column name="DETAILS" length="1073741823" not-null="true" />
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="DATE_TIME" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

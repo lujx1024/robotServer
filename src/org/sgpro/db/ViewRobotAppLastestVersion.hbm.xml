@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewRobotAppLastestVersion" table="VIEW_ROBOT_APP_LASTEST_VERSION" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewRobotAppLastestVersionId">
+            <key-property name="robotAppId" type="long">
+                <column name="ROBOT_APP_ID" />
+            </key-property>
+            <key-property name="appName" type="string">
+                <column name="APP_NAME" length="50" />
+            </key-property>
+            <key-property name="packageName" type="string">
+                <column name="PACKAGE_NAME" length="100" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="500" />
+            </key-property>
+            <key-property name="lastestVersionCode" type="long">
+                <column name="LASTEST_VERSION_CODE" />
+            </key-property>
+            <key-property name="versionName" type="string">
+                <column name="VERSION_NAME" length="500" />
+            </key-property>
+            <key-property name="downloadUrl" type="string">
+                <column name="DOWNLOAD_URL" length="500" />
+            </key-property>
+            <key-property name="releaseNote" type="string">
+                <column name="RELEASE_NOTE" length="500" />
+            </key-property>
+            <key-property name="publishDatetime" type="timestamp">
+                <column name="PUBLISH_DATETIME" length="23" />
+            </key-property>
+            <key-property name="enable" type="boolean">
+                <column name="ENABLE" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

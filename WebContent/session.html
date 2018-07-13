@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>奥拓智能机器人后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="js/jsonview/jquery.jsonview.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="js/video-js/video-js.css">
+	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="js/video-js/video.js"></script>
+	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="js/jsonview/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/Sortable.js"></script>
+	<script type="text/javascript" src="js/calender/laydate.dev.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/session.js"></script>
+</head>
+<body>
+	<div style="position:relative">
+		<div class="sidebar">
+			<div class="menu_bar">
+				<i class="icon-reorder"></i>
+			</div>
+			<ul class="menu">
+				<li><a href="robots.html"><i class="fa fa-android fa-2x fa-fw" style="color:#2aaf00"></i><span>机器列表</span></a></li>
+				<li><a href="setConfig_common.html"><i class="fa fa-wrench fa-2x fa-fw" style="color:#0065e6;"></i><span>常用配置</span></a></li>
+				<li><a href="setConfig_senior.html"><i class="fa fa-cog  fa-2x fa-fw" style="color:#ff00de;"></i><span>高级配置</span></a></li>
+				<li><a href="setConfig_industry.html"><i class="fa fa-globe  fa-2x fa-fw" style="color:#2EAEF8;"></i><span>行业配置</span></a></li>
+				<li><a href="corpus.html"><i class="fa fa-book fa-2x fa-fw" style="color:#f70019;"></i><span>语料管理</span></a></li>
+				<li><a href="apply.html"><i class="fa fa-object-group fa-2x fa-fw" style="color:#ffb914;"></i><span>应用管理</span></a></li>
+				<li><a href="log.html"><i class="fa fa-file-text-o fa-2x fa-fw" style="color:#2aaf00"></i><span>系统日志</span></a></li>
+				<li><a href="system_exception.html"><i class="fa fa-medkit fa-2x fa-fw" style="color:#dc0008"></i><span>系统异常</span></a></li>
+				<li><a href="javascript:;" class="current"><i class="fa fa-gamepad fa-2x fa-fw" style="color:#20dc00"></i><span>远程控制</span></a></li>
+				<li><a href="session_record.html"><i class="fa fa-list-ol fa-2x fa-fw" style="color:#d900f1"></i><span>会话记录</span></a></li>
+			</ul>
+		</div>
+		<div class="wapper_content">
+			<div class="table_bar">远程遥控</div>
+			<div class="table_container">
+				<div class="session_box">
+					<div class="session_content session_current">
+						<section class="session_talk clearfix">
+							<div class="talk_title fl">
+								<input type="button" class="all_robots">
+								<form action="" id="robots" class="clearfix"></form>
+							</div>
+							<div class="fl talk_container">
+								<div class="talk_content">
+									<ul id="more_session"></ul>
+									<a href='javascript:;' class='close_more_session'>查看更多消息</a>
+									<div class="session_loaded"><img src="images/icon_gif.gif" height="16px;"></div>
+									<a href="session_record.html" class="sessionHis_more">更多，请查看会话记录！</a>
+									<ul class="talk_list"></ul>
+								</div>
+								<div class="session_input_box">
+									<div class="session_bar clearfix">
+										<div class="fl session_auto">
+											<label>手动</label>
+											<input type="checkbox" id="hand_mode">
+										</div>
+										<div class="fl session_command displayNone">
+											<label>资源路径</label>
+											<input type="text" id="source_path" style="width:150px;">
+										</div>
+										<div class="fl session_command displayNone">
+											<label>命令</label>
+											<select id="session_command" style="width:150px;"></select>
+										</div>
+										<div class="fl session_command displayNone">	
+											<label>参数</label>
+											<input type="text" id="command_param" style="width:150px;">
+											<select id="robot_command" class="displayNone">
+												<option value="">无</option>
+												<option value="MOVE_DIRECTION,START,LEFT">左转</option>
+												<option value="MOVE_DIRECTION,START,RIGHT">右转</option>
+												<option value="MOVE_DIRECTION,START,FORWARD">前进</option>
+												<option value="MOVE_DIRECTION,START,BACK">后退</option>
+												<option value="HEAD_ACTION,NOD">点头</option>
+												<option value="HEAD_ACTION,SHAKE">摇头</option>
+												<option value="MOVE_DIRECTION,STOP">停止</option>
+											</select>
+										</div>
+										<div class="fl session_command displayNone">
+											<label>第三方</label>
+											<select id="session_third" style="width:150px;"></select>
+										</div>
+										<div class="fl session_command displayNone">
+											<label>第三方参数</label>
+											<select id="session_thirdParam" style="width:150px">
+												<option value="0">无</option>
+											</select>
+										</div>
+										<div class="fl session_command displayNone">
+											<div style="text-align:center;">
+												<button class="arrow_btn" command="1001" param="MOVE_DIRECTION,START,LEFT" title="左转"><i class="fa fa-arrow-left fa-1x"></i></button>
+												<button class="arrow_btn" command="1001" param="MOVE_DIRECTION,START,FORWARD" title="前进"><i class="fa fa-arrow-up fa-1x"></i></button>
+												<button class="arrow_btn" command="1001" param="MOVE_DIRECTION,START,RIGHT" title="右转"><i class="fa fa-arrow-right fa-1x"></i></button>
+												<button class="arrow_btn" command="1001" param="MOVE_DIRECTION,START,BACK" title="后退"><i class="fa fa-arrow-down fa-1x"></i></button>
+											</div>
+										</div>
+										<div class="fl session_command displayNone">
+											<button id="nod" command="1001" param="HEAD_ACTION,NOD" title="点头">点头</button>
+											<button id="shake_head" command="1001" param="HEAD_ACTION,SHAKE" title="摇头">摇头</button>
+											<button id="stop_move" command="1001" param="MOVE_DIRECTION,STOP" title="停止">停止</button>
+										</div>
+										<div class="fl session_command displayNone">
+											<button command="97" param="" id="play_video" title="远程视频"></button>
+										</div>
+										<div class="fl session_command displayNone">
+											<button command="100" param="3" id="add_voice" title="增大音量"></button>
+											<button command="100" param="-3" id="down_voice" title="减小音量"></button>
+										</div>
+										<div class="fl session_command displayNone">
+											<button command="1004" param="" id="battery" title="播报电量"></button>
+										</div>
+										<div class="fl session_command displayNone">
+											<button command="98" param="" id="update_config" title="更新配置"></button>
+										</div>
+										<div class="fl session_command displayNone">
+											<button command="1007" param="$perform-action$" id="dance" title="跳舞">跳舞</button>
+										</div>
+										<div class="fl session_command displayNone">
+											<button command="1003" param="$patrol_2$" id="patrol" title="好的，现在要去去自助设备区，请跟我来">去自助设备区</button>
+										</div>
+										<div class="fl session_command displayNone">
+											<button command="1003" param="$patrol_3$" id="patrol" title="好的，现在要去去贵宾服务区，请跟我来！">去贵宾服务区</button>
+										</div>
+										<div class="fl session_command displayNone">
+											<button command="1003" param="$patrol_1$" id="patrol" title="">回迎宾点</button>
+										</div>
+										<div class="fl session_command displayNone">
+											<label>文本回复</label>
+											<select id="session_text" style="width:150px;">
+												<option value="none">无</option>
+												<option value="各位领导，下午好。欢迎光临中国工商银行儋州营业部。我是小I，ICBC的I。您也可以叫我小爱。小爱可以做很多事情，小爱是个百事通哦，您可以对我进行各种业务咨询。我也会唱歌、跳舞、讲笑话，小爱开心生气的时候会变脸的哦。小爱也可以查天气、新闻、附近搜索；小爱还可以带客户去办理业务哦。">自我介绍</option>
+												<option value="穿件白衬衫在炒菜，不小心溅到两滴油到衣服上，怕老婆洗的时候看不到油渍，于是用水彩笔圈出来了。">笑话一：白衬衫炒菜</option>
+												<option value="今天去相亲，遇到极品男。 你去肯德基也就算了，你只点两个甜筒也就算了， 还要跟营业员说：“两个五块钱怎么样？给便宜点呗，我每次相亲都来你们这里的。">笑话二：肯德基相亲</option>
+												<option value="家长会： 小明爸爸：老师，小明这成绩虽然不好，但各科还算均衡，不偏科！ 老师：那是因为各科的选择题和判断题所占的分值都差不多！">笑话三：小明爸爸</option>
+												<option value="开卡需要您本人携带有效身份证原件前往智能终端办理，如果您已经持有工商银行借记卡并小于4张，此次开卡将为二类账户。小爱知道的还很多，您还有其他想要了解的吗？">我要开卡</option>
+												<option value="欢迎各位领导下次光临儋州营业部。">欢送领导</option>
+												<option value="这个问题我还不知道呢，我要先问一下我爸爸妈妈。">无法回答一</option>
+												<option value="我觉得这个问题银行的哥哥姐姐会回答的比我好，要不然您问一下他们吧。">无法回答二</option>
+											</select>
+										</div>
+										<div class="fl session_command displayNone relative">
+											<button id="face_pack" title="表情" style="cursor:pointer"></button>
+											<div class="face_list displayNone">
+												<ul class="clearfix face_list_box">
+													<li param="EMOTION,START,AFRAID" command="1001"><img title="害怕" src="images/face/face_afraid.png"></li>
+													<li param="EMOTION,START,ANGRY" command="1001"><img title="生气" src="images/face/face_angry.png"></li>
+													<li param="EMOTION,START,BIG-SMALL" command="1001"><img title="大小眼" src="images/face/face_big.png"></li>
+													<li param="EMOTION,START,DAZE" command="1001"><img title="茫然" src="images/face/face_blink.png"></li>
+													<li param="EMOTION,START,CONFUSE" command="1001"><img title="故障" src="images/face/face_confuse.png"></li>
+													<li param="EMOTION,START,DANCE-1S" command="1001"><img title="跳舞1s" src="images/face/face_dance.png"></li>
+													<li param="EMOTION,START,ROUND2" command="1001"><img title="圆形2" src="images/face/face_default.png"></li>
+													<li param="EMOTION,START,FLIRT" command="1001"><img title="挑逗" src="images/face/face_flirt.png"></li>
+													<li param="EMOTION,START,HAPPY" command="1001"><img title="高兴" src="images/face/face_happy.png"></li>
+													<li param="EMOTION,START,HEART" command="1001"><img title="心" src="images/face/face_heart.png"></li>
+													<li param="EMOTION,START,NAUTY" command="1001"><img title="顽皮" src="images/face/face_nauty.png"></li>
+													<li param="EMOTION,START,ROTATE" command="1001"><img title="网络不良" src="images/face/face_rotate.png"></li>
+													<li param="EMOTION,START,SAD" command="1001"><img title="伤心" src="images/face/face_sad.png"></li>
+													<li param="EMOTION,START,SINISTER-1S" command="1001"><img title="阴险" src="images/face/face_sinister.png"></li>
+													<li param="EMOTION,START,ROUND" command="1001"><img title="圆形" src="images/face/face_wait.png"></li>
+													<li param="EMOTION,START,STAR" command="1001"><img title="开心" src="images/face/face_star.png"></li>
+													<li param="EMOTION,START,TRANSITION" command="1001"><img title="切换过渡" src="images/face/face_transition.png"></li>
+													<li param="EMOTION,START,LIGHT" command="1001"><img title="明亮" src="images/face/face_watch.png"></li>
+												</ul>
+											</div>	
+										</div>
+									</div>
+									<textarea name="" id="session_input_text" readonly="readonly" placeholder="请选择要对话的机器人，然后进入手动模式，可实行人工对话。"></textarea>
+									<div class="fr">
+										<input type="button" id="session_pass" value="自动应答" disabled="disabled">
+										<input type="button" id="session_send" value="发 送" disabled="disabled">
+									</div>
+									
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

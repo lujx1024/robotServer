@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>奥拓智能机器人后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="js/jsonview/jquery.jsonview.css">
+	<link rel="stylesheet" type="text/css" href="js/handson/handsontable.full.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jsonview/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/handson/handsontable.full.js"></script>
+	<script type="text/javascript" src="js/echarts/build/dist/echarts.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/corpus.js"></script>
+
+</head>
+<body>
+	<div style="position:relative">
+		<div class="sidebar">
+			<div class="menu_bar">
+				<i class="icon-reorder"></i>
+			</div>
+			<ul class="menu">
+				<li><a href="robots.html"><i class="fa fa-android fa-2x fa-fw" style="color:#2aaf00"></i><span>机器列表</span></a></li>
+				<li><a href="setConfig_common.html"><i class="fa fa-wrench fa-2x fa-fw" style="color:#0065e6;"></i></i><span>常用配置</span></a></li>
+				<li><a href="setConfig_senior.html"><i class="fa fa-cog  fa-2x fa-fw" style="color:#ff00de;"></i><span>高级配置</span></a></li>
+				<li><a href="setConfig_industry.html"><i class="fa fa-globe  fa-2x fa-fw" style="color:#2EAEF8;"></i><span>行业配置</span></a></li>
+				<li><a href="javascript:;" class="current"><i class="fa fa-book fa-2x fa-fw" style="color:#f70019;"></i><span>语料管理</span></a></li>
+				<li><a href="apply.html"><i class="fa fa-object-group fa-2x fa-fw" style="color:#ffb914;"></i><span>应用管理</span></a></li>
+				<li><a href="log.html"><i class="fa fa-file-text-o fa-2x fa-fw" style="color:#2aaf00"></i><span>系统日志</span></a></li>
+				<li><a href="system_exception.html"><i class="fa fa-medkit fa-2x fa-fw" style="color:#dc0008"></i><span>系统异常</span></a></li>
+				<li><a href="session.html"><i class="fa fa-gamepad fa-2x fa-fw" style="color:#20dc00"></i><span>远程控制</span></a></li>
+				<li><a href="session_record.html"><i class="fa fa-list-ol fa-2x fa-fw" style="color:#d900f1"></i><span>会话记录</span></a></li>
+			</ul>
+		</div>
+		<div class="wapper_content">
+			<div class="table_bar">语料编辑</div>
+			<div class="table_container">
+				<header class="corpus_test clearfix">
+					<input type="button" class="all_robots all_robots_current" value="会话测试" style="font-size:18px">
+					<div class="fr">
+						<div class="inline_block corpus_test_robots">
+							<label for="">选择机器人</label>
+							<select name="" id="corpus_robots_list"></select>
+						</div>
+						<input type="text" placeholder="请输入测试会话内容" class="corpus_test_ipt">
+						<input type="button" value="确定" class="corpus_test_btn">
+						<input type="button" value="压力测试" class="corpus_webtest_btn">
+					</div>
+				</header>
+				<section class="corpus_box">
+					<div class="clearfix">
+						<div class="fl excel_left">
+							<div class="clearfix">
+								<form role="form" id="excelForm" method="post" enctype="multipart/form-data" class="fl">
+							    	<label>上传语料表格（如没有语料模板请<a href="https://www.robotcheers.com/signalmaster/rest/d/robotcheers_dialog_template.xlsx" class="downloadExcel"> 点此下载</a>）：</label>
+							    	<input type="button" id="excel_btn" value="开始上传"/>
+							    	<a href="#" class="loadexcel">选择文件<input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></a>
+							    	<div class="upload_fileOk"><i class="icon-check"></i>上传成功！</div>
+							    </form>
+							</div>
+						    <div class="add_row">
+						    	<input value="增加行" type="button" id="addrow">
+						    	<input value="保存" type="button" id="save_addrow">
+						    	<input value="删除行" type="button" id="deleterow" disabled="disabled">
+						    	<input value="扩展语义" type="button" id="extended" disabled="disabled">
+						    	<input value="有效" type="button" id="enabled" disabled="disabled">
+						    	<input value="无效" type="button" id="dis_enabled" disabled="disabled">
+						    </div>
+					    </div>
+					    <div class="search_box" style="margin-top:35px;">
+							<input type="text" placeholder="输入关键字" id="search_ipt"><label id="search_text">搜 索</label>
+						</div>
+					</div>
+					<div class="corpus_databox">
+					<div id="corpus" class="hot handsontable htRowHeaders htColumnHeaders"></div></div>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

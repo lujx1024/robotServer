@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewHuaqin2016ProivderConfrence" table="VIEW_HUAQIN_2016_PROIVDER_CONFRENCE" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewHuaqin2016ProivderConfrenceId">
+            <key-property name="name" type="string">
+                <column name="NAME" length="50" />
+            </key-property>
+            <key-property name="unamePinyin" type="string">
+                <column name="UNAME_PINYIN" length="4000" />
+            </key-property>
+            <key-property name="companyName" type="string">
+                <column name="COMPANY_NAME" length="50" />
+            </key-property>
+            <key-property name="companyCname" type="string">
+                <column name="COMPANY_CNAME" length="50" />
+            </key-property>
+            <key-property name="cnamePinyin" type="string">
+                <column name="CNAME_PINYIN" length="4000" />
+            </key-property>
+            <key-property name="companyFullName" type="string">
+                <column name="COMPANY_FULL_NAME" length="300" />
+            </key-property>
+            <key-property name="mettingRowNum" type="long">
+                <column name="METTING_ROW_NUM" />
+            </key-property>
+            <key-property name="mettingColNum" type="long">
+                <column name="METTING_COL_NUM" />
+            </key-property>
+            <key-property name="dinnerNo" type="string">
+                <column name="DINNER_NO" length="50" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

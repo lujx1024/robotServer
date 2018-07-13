@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblBizMenuitemAction" table="TBL_BIZ_MENUITEM_ACTION" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="action" type="string">
+            <column name="ACTION" length="200" />
+        </property>
+        <property name="uri" type="string">
+            <column name="URI" length="4000" />
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="1073741823" />
+        </property>
+        <property name="extra" type="string">
+            <column name="EXTRA" length="50" />
+        </property>
+        <property name="packageName" type="string">
+            <column name="PACKAGE_NAME" length="4000" />
+        </property>
+        <property name="className" type="string">
+            <column name="CLASS_NAME" length="256" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="1073741823" />
+        </property>
+        <set name="tblBizMenutrees" table="TBL_BIZ_MENUTREE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MENUITEM_ACTION_ID" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblBizMenutree" />
+        </set>
+    </class>
+</hibernate-mapping>

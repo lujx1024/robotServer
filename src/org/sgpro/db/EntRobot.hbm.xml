@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntRobot" table="ENT_ROBOT" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="entHwSpec" class="org.sgpro.db.EntHwSpec" fetch="select">
+            <column name="HW_SPEC_ID" not-null="true" />
+        </many-to-one>
+        <property name="imei" type="string">
+            <column name="IMEI" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="500" not-null="true" />
+        </property>
+        <property name="activateDatetime" type="timestamp">
+            <column name="ACTIVATE_DATETIME" length="23" not-null="true" />
+        </property>
+        <property name="activateUserId" type="long">
+            <column name="ACTIVATE_USER_ID" not-null="true" />
+        </property>
+        <property name="manualMode" type="boolean">
+            <column name="MANUAL_MODE" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="500" />
+        </property>
+        <property name="userGroupSceneId" type="java.lang.Long">
+            <column name="USER_GROUP_SCENE_ID" />
+        </property>
+        <set name="tblInheritConfigForRobots" table="TBL_INHERIT_CONFIG_FOR_ROBOT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROBOT_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblInheritConfigForRobot" />
+        </set>
+        <set name="tblRobotTagses" table="TBL_ROBOT_TAGS" inverse="true" lazy="true" fetch="select">
+            <key> 
+                <column name="ROBOT_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblRobotTags" />
+        </set>
+        <set name="tblCustomizedConfigForRobots" table="TBL_CUSTOMIZED_CONFIG_FOR_ROBOT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROBOT_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblCustomizedConfigForRobot" />
+        </set>
+        <set name="tblRobotSessionContexts" table="TBL_ROBOT_SESSION_CONTEXT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROBOT_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblRobotSessionContext" />
+        </set>
+    </class>
+</hibernate-mapping>

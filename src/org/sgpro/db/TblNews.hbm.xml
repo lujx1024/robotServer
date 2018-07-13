@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblNews" table="TBL_NEWS" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="newsTime" type="timestamp">
+            <column name="NEWS_TIME" length="23" />
+        </property>
+        <property name="pictures" type="binary">
+            <column name="PICTURES" />
+        </property>
+        <property name="title" type="string">
+            <column name="TITLE" length="50" not-null="true" />
+        </property>
+        <property name="content" type="string">
+            <column name="CONTENT" length="1073741823" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

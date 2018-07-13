@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewConfigUserGroupScene" table="VIEW_CONFIG_USER_GROUP_SCENE" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewConfigUserGroupSceneId">
+            <key-property name="ownerId" type="long">
+                <column name="OWNER_ID" />
+            </key-property>
+            <key-property name="ownerType" type="long">
+                <column name="OWNER_TYPE" />
+            </key-property>
+            <key-property name="ownerName" type="string">
+                <column name="OWNER_NAME" length="50" />
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="NAME" length="256" />
+            </key-property>
+            <key-property name="type" type="string">
+                <column name="TYPE" length="50" />
+            </key-property>
+            <key-property name="value" type="string">
+                <column name="VALUE" length="1073741823" />
+            </key-property>
+            <key-property name="level" type="long">
+                <column name="LEVEL" />
+            </key-property>
+            <key-property name="limitL" type="string">
+                <column name="LIMIT_L" length="50" />
+            </key-property>
+            <key-property name="limitH" type="string">
+                <column name="LIMIT_H" length="50" />
+            </key-property>
+            <key-property name="candidate" type="string">
+                <column name="CANDIDATE" length="4000" />
+            </key-property>
+            <key-property name="pattern" type="string">
+                <column name="PATTERN" length="50" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="128" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

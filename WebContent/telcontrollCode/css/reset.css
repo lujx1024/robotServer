@@ -1,0 +1,90 @@
+body, div,header,nav,section, dl, dt, dd, ul, ol, li, p, h1, h2, h3, h4, h5, h6,pre, code, 
+form, fieldset, legend, button, input, textarea, img, blockquote, th, td,select,option{ 
+	margin: 0; 
+	padding: 0 ;
+	font: 14px/1.5 "microsoft yahei", "\5B8B\4F53", tahoma, arial ;
+}
+body{ 
+	color: #666; 
+	background-color: #fff,
+	font-size:14px;
+	height: 100%;
+}
+*{
+	box-sizing: border-box;
+}
+table { 
+	border-collapse: collapse; 
+	border-spacing: 0 ;
+}
+h1, h2, h3, h4, h5, h6 { 
+	font-size: 100%; 
+}
+ul, ol { 
+	list-style: none ;
+}
+select, input, img { 
+	vertical-align: middle; 
+	outline: 0;
+}
+a:link, a:visited { 
+	text-decoration: none; 
+	color: #666;
+}
+a:hover { 
+	color: #666; 
+	text-decoration: none; 
+}
+fieldset, img { 
+	border: 0 none ;
+}
+em { 
+	font-style: normal; 
+}
+form div {
+	padding-left:2px;
+}
+code:before {
+	position: absolute;
+	content: 'Code:';
+	top: -1.35em;
+	left: 0;
+}
+code {
+	margin-top: 1.5em;
+	position: relative;
+	background: #eee;
+	border: 1px solid #aaa;
+	white-space: pre;
+	padding: .25em;
+	min-height: 1.25em;
+}
+code:before, code {
+	display: block;
+	text-align: left;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix:after { 
+	content: "\20"; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+.clearfix { 
+	*zoom: 1 
+}
+textarea{
+	resize: none;
+}
+.displayNone{
+	display: none;
+}
+.inline_block{
+	display: inline-block;
+}

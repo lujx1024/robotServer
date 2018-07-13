@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewRemoteUserRobotBindList" table="VIEW_REMOTE_USER_ROBOT_BIND_LIST" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewRemoteUserRobotBindListId">
+            <key-property name="robotId" type="long">
+                <column name="ROBOT_ID" />
+            </key-property>
+            <key-property name="robotName" type="string">
+                <column name="ROBOT_NAME" length="500" />
+            </key-property>
+            <key-property name="robotImei" type="string">
+                <column name="ROBOT_IMEI" length="50" />
+            </key-property>
+            <key-property name="robotManualMode" type="java.lang.Boolean">
+                <column name="ROBOT_MANUAL_MODE" length="50" />
+            </key-property>
+            <key-property name="robotActivateDatetime" type="timestamp">
+                <column name="ROBOT_ACTIVATE_DATETIME" length="23" />
+            </key-property>
+            <key-property name="robotLatestStatusUpdateDatetime" type="timestamp">
+                <column name="ROBOT_LATEST_STATUS_UPDATE_DATETIME" length="23" />
+            </key-property>
+            <key-property name="robotLatestStatusWssSessionId" type="string">
+                <column name="ROBOT_LATEST_STATUS_WSS_SESSION_ID" length="500" />
+            </key-property>
+            <key-property name="robotLatestStatusOnline" type="java.lang.Boolean">
+                <column name="ROBOT_LATEST_STATUS_ONLINE" />
+            </key-property>
+            <key-property name="robotLatestStatusExtraInfo" type="string">
+                <column name="ROBOT_LATEST_STATUS_EXTRA_INFO" length="1073741823" />
+            </key-property>
+            <key-property name="userId" type="long">
+                <column name="USER_ID" />
+            </key-property>
+            <key-property name="isActivateUser" type="java.lang.Boolean">
+                <column name="IS_ACTIVATE_USER" />
+            </key-property>
+            <key-property name="userName" type="string">
+                <column name="USER_NAME" length="50" />
+            </key-property>
+            <key-property name="userPassword" type="string">
+                <column name="USER_PASSWORD" length="50" />
+            </key-property>
+            <key-property name="userLastestStatusUpdateDatetime" type="timestamp">
+                <column name="USER_LASTEST_STATUS_UPDATE_DATETIME" length="23" />
+            </key-property>
+            <key-property name="userLastestStatusWssSessionId" type="string">
+                <column name="USER_LASTEST_STATUS_WSS_SESSION_ID" length="500" />
+            </key-property>
+            <key-property name="updateDatetime" type="timestamp">
+                <column name="UPDATE_DATETIME" length="23" />
+            </key-property>
+            <key-property name="userLastestStatusOnline" type="java.lang.Boolean">
+                <column name="USER_LASTEST_STATUS_ONLINE" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+{
+	"params":{
+		"is_initiator":true,
+		"room_link":"https://apprtc.appspot.com/r/sgpro2015",
+		"messages":[
+			
+		]
+		,
+		"error_messages":[
+			
+		]
+		,
+		"client_id":"16562789",
+		"bypass_join_confirmation":false,
+		"media_constraints":{
+			"audio":true,
+			"video":true
+		}
+		,
+		"include_loopback_js":"",
+		"turn_url":"https://computeengineondemand.appspot.com/turn?username=16562789&key=4080218913",
+		"is_loopback":false,
+		"wss_url":"wss://apprtc-ws.webrtc.org:443/ws",
+		"pc_constraints":{
+			"optional":[
+				
+			]
+		},
+		"pc_config":{
+			"iceServers":[
+				
+			]
+		}
+		,
+		"wss_post_url":"https://apprtc-ws.webrtc.org:443",
+		"room_id":"sgpro2015",
+		"turn_transports":"",
+		"offer_constraints":{
+			"optional":[
+				
+			],
+			"mandatory":{
+				
+			}
+		}
+	}
+	,
+	"result":"SUCCESS"
+}

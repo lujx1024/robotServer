@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:08:37 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntVoice" table="ENT_VOICE" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="entThirdPartyApi" class="org.sgpro.db.EntThirdPartyApi" fetch="join" lazy="false">
+            <column name="THIRD_PARTY_API_ID" />
+        </many-to-one>
+        <many-to-one name="entThirdPartyApiParamValue" class="org.sgpro.db.EntThirdPartyApiParamValue" fetch="join" lazy="false" >
+            <column name="THIRD_PARTY_API_PARAMS_VALUE_ID" />
+        </many-to-one>
+        <many-to-one name="entVoiceCommand" class="org.sgpro.db.EntVoiceCommand" fetch="join" lazy="false">
+            <column name="COMMAND" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="path" type="string">
+            <column name="PATH" length="1024" />
+        </property>
+        <property name="emotion" type="string">
+            <column name="EMOTION" length="1024" />
+        </property>
+        <property name="text" type="string">
+            <column name="TEXT" length="4000" />
+        </property>
+        <property name="commandParam" type="string">
+            <column name="COMMAND_PARAM" length="1073741823" />
+        </property>
+        <property name="incProp" type="string">
+            <column name="INC_PROP" length="800" />
+        </property>
+        <property name="excProp" type="string">
+            <column name="EXC_PROP" length="800" />
+        </property>
+        <property name="cat" type="string">
+            <column name="CAT" length="50" not-null="true" />
+        </property>
+        <property name="fixedParam1" type="java.lang.Long">
+            <column name="FIXED_PARAM_1" />
+        </property>
+        <property name="fixedParam2" type="java.lang.Long">
+            <column name="FIXED_PARAM_2" />
+        </property>
+        <property name="fixedParam3" type="java.lang.Long">
+            <column name="FIXED_PARAM_3" />
+        </property>
+        <property name="fixedParam4" type="java.lang.Long">
+            <column name="FIXED_PARAM_4" />
+        </property>
+        <property name="fixedParam5" type="java.lang.Long">
+            <column name="FIXED_PARAM_5" />
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="ENABLED" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="1024" not-null="true" />
+        </property>
+        <set name="tblWordGroupFlowToVoiceGroupRuleOrignals" table="TBL_WORD_GROUP_FLOW_TO_VOICE_GROUP_RULE_ORIGNAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VOICE_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblWordGroupFlowToVoiceGroupRuleOrignal" />
+        </set>
+        <set name="tblVoiceTags" table="TBL_VOICE_TAG" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VOICE_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblVoiceTag" />
+        </set>
+        <set name="tblVoiceGroups" table="TBL_VOICE_GROUP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VOICE_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.sgpro.db.TblVoiceGroup" />
+        </set>
+    </class>
+</hibernate-mapping>

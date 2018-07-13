@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>奥拓智能机器人后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+	<link href="js/swfupload/ligerUI/skins/Aqua/css/ligerui-all.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="js/on_off/switchery.css"">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="js/jsonview/jquery.jsonview.css">
+	<link rel="stylesheet" type="text/css" href="js/minicolors/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="js/minicolors/jquery.minicolors.css">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/on_off/switchery.js"></script>
+	<script type="text/javascript" src="js/jsonview/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/Sortable.js"></script>
+	<script type="text/javascript" src="js/minicolors/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/minicolors/jquery.minicolors.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/main_setconfig_common.js"></script>
+	<script type="text/javascript" src="js/setconfig_common.js"></script>
+	<script type="text/javascript" src="js/swfupload/ligerUI/js/core/base.js"></script>  
+    <script type="text/javascript" src="js/swfupload/ligerUI/js/plugins/ligerDrag.js"></script>  
+    <script type="text/javascript" src="js/swfupload/ligerUI/js/plugins/ligerDialog.js"></script> 
+	<script type="text/javascript" src="js/swfupload/swfupload.js"></script>
+	<script type="text/javascript" src="js/swfupload/swfupload.queue.js"></script>
+</head>
+<body>
+	<div style="position:relative">
+		<div class="sidebar">
+			<div class="menu_bar">
+				<i class="icon-reorder"></i>
+			</div>
+			<ul class="menu">
+				<li><a href="robots.html"><i class="fa fa-android  fa-2x fa-fw" style="color:#2aaf00;margin-left:0px;"></i><span>机器列表</span></a></li>
+				<li><a href="javascript:;" class="current"><i class="fa fa-wrench fa-2x fa-fw" style="color:#0065e6;"></i><span>常用配置</span></a></li>
+				<li><a href="setConfig_senior.html"><i class="fa fa-cog  fa-2x fa-fw" style="color:#ff00de;"></i><span>高级配置</span></a></li>
+				<li><a href="setConfig_industry.html"><i class="fa fa-globe  fa-2x fa-fw" style="color:#2EAEF8;"></i><span>行业配置</span></a></li>
+				<li><a href="corpus.html"><i class="fa fa-book fa-2x fa-fw" style="color:#f70019;"></i><span>语料管理</span></a></li>
+				<li><a href="apply.html"><i class="fa fa-object-group fa-2x fa-fw" style="color:#ffb914;"></i><span>应用管理</span></a></li>
+				<li><a href="log.html"><i class="fa fa-file-text-o fa-2x fa-fw" style="color:#2aaf00"></i><span>系统日志</span></a></li>
+				<li><a href="system_exception.html"><i class="fa fa-medkit fa-2x fa-fw" style="color:#dc0008"></i><span>系统异常</span></a></li>
+				<li><a href="session.html"><i class="fa fa-gamepad fa-2x fa-fw" style="color:#20dc00"></i><span>远程控制</span></a></li>
+				<li><a href="session_record.html"><i class="fa fa-list-ol fa-2x fa-fw" style="color:#d900f1"></i><span>会话记录</span></a></li>
+			</ul>
+		</div>
+		<div class="wapper_content">
+			<div class="table_bar">配置管理</div>
+			<div class="table_container">
+				<div class="clearfix">
+					<input type="button" class="all_robots fl" value="所有机器人">
+					<button class="robot_edit_model_save fr displayNone"><i class="icon-pencil" style="color:#fff;margin-right:2px;"></i><span>保存分组</span></button>
+					<button class="robot_edit_model fr"><i class="icon-pencil" style="color:#fff;margin-right:2px;"></i><span>编辑分组</span></button>
+				</div>
+				
+				<div id="robot_group" class="clearfix">
+					<div class="robot_group_box" id="not_grouped">
+						<div class="robot_group_title" sceneId="0">默认分组</div>
+						<input type="text" value="默认分组" class="scene_title_edit displayNone" sceneId="0" disabled="disabled" />
+						<ul id="scene0" class="clearfix" sceneId="0"></ul>
+					</div>
+					<div class="robot_group_box displayNone" id="add_scene_box">
+						<div class="robot_group_title_add">新建组</div>
+						<div class="clearfix add_scene">
+							<img src="images/add_scene.png" alt="">
+						</div>
+					</div>
+				</div>
+				<section class="table_box">
+					<div class="common_config_box">
+						<ul class="common_config_list">
+						</ul>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

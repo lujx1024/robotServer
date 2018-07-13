@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblInheritConfigForUserGroup" table="TBL_INHERIT_CONFIG_FOR_USER_GROUP" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblInheritConfigForUserGroupId">
+            <key-property name="userGroupId" type="long">
+                <column name="USER_GROUP_ID" />
+            </key-property>
+            <key-property name="configName" type="string">
+                <column name="CONFIG_NAME" length="256" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entUserGroup" class="org.sgpro.db.EntUserGroup" update="false" insert="false" fetch="select">
+            <column name="USER_GROUP_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entConfig" class="org.sgpro.db.EntConfig" update="false" insert="false" fetch="select">
+            <column name="CONFIG_NAME" length="256" not-null="true" />
+        </many-to-one>
+        <property name="value" type="string">
+            <column name="VALUE" length="1073741823" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

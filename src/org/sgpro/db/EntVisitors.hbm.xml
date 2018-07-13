@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.EntVisitors" table="ENT_VISITORS" schema="dbo" catalog="G2Robot">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="PHONE" length="50" not-null="true" />
+        </property>
+        <property name="company" type="string">
+            <column name="COMPANY" length="50" not-null="true" />
+        </property>
+        <property name="event" type="string">
+            <column name="EVENT" length="50" not-null="true" />
+        </property>
+        <property name="tareget" type="string">
+            <column name="TAREGET" length="50" not-null="true" />
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="DATE_TIME" length="23" />
+        </property>
+    </class>
+</hibernate-mapping>

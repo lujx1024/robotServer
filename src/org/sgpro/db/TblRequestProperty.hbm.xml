@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblRequestProperty" table="TBL_REQUEST_PROPERTY" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblRequestPropertyId">
+            <key-property name="requestId" type="string">
+                <column name="REQUEST_ID" length="120" />
+            </key-property>
+            <key-property name="propertyName" type="string">
+                <column name="PROPERTY_NAME" length="120" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entRequest" class="org.sgpro.db.EntRequest" update="false" insert="false" fetch="select">
+            <column name="REQUEST_ID" length="120" not-null="true" />
+        </many-to-one>
+        <property name="propertyValue" type="string">
+            <column name="PROPERTY_VALUE" length="4000" not-null="true" />
+        </property>
+        <property name="isNumeric" type="boolean">
+            <column name="IS_NUMERIC" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

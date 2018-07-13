@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewChatHistory" table="VIEW_CHAT_HISTORY" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewChatHistoryId">
+            <key-property name="id" type="long">
+                <column name="ID" />
+            </key-property>
+            <key-property name="request" type="string">
+                <column name="REQUEST" length="1073741823" />
+            </key-property>
+            <key-property name="requestEpSn" type="string">
+                <column name="REQUEST_EP_SN" length="250" />
+            </key-property>
+            <key-property name="requestModel" type="string">
+                <column name="REQUEST_MODEL" length="4000" />
+            </key-property>
+            <key-property name="requestClientIp" type="string">
+                <column name="REQUEST_CLIENT_IP" length="50" />
+            </key-property>
+            <key-property name="requestClientVersion" type="string">
+                <column name="REQUEST_CLIENT_VERSION" length="120" />
+            </key-property>
+            <key-property name="requestAddr" type="string">
+                <column name="REQUEST_ADDR" length="2000" />
+            </key-property>
+            <key-property name="response1" type="string">
+                <column name="RESPONSE_1" length="1073741823" />
+            </key-property>
+            <key-property name="kind" type="string">
+                <column name="KIND" length="1073741823" />
+            </key-property>
+            <key-property name="text" type="string">
+                <column name="TEXT" length="1073741823" />
+            </key-property>
+            <key-property name="source" type="string">
+                <column name="SOURCE" length="1073741823" />
+            </key-property>
+            <key-property name="execMillsecs" type="java.lang.Long">
+                <column name="EXEC_MILLSECS" />
+            </key-property>
+            <key-property name="dateTime" type="timestamp">
+                <column name="DATE_TIME" length="23" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

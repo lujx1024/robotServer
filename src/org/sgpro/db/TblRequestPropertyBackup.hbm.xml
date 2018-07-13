@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.TblRequestPropertyBackup" table="TBL_REQUEST_PROPERTY_BACKUP" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.TblRequestPropertyBackupId">
+            <key-property name="requestId" type="string">
+                <column name="REQUEST_ID" length="120" />
+            </key-property>
+            <key-property name="propertyName" type="string">
+                <column name="PROPERTY_NAME" length="120" />
+            </key-property>
+            <key-property name="propertyValue" type="string">
+                <column name="PROPERTY_VALUE" length="4000" />
+            </key-property>
+            <key-property name="isNumeric" type="boolean">
+                <column name="IS_NUMERIC" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

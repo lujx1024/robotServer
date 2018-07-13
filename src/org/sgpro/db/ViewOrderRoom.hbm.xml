@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-21 11:12:48 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.sgpro.db.ViewOrderRoom" table="VIEW_ORDER_ROOM" schema="dbo" catalog="G2Robot">
+        <composite-id name="id" class="org.sgpro.db.ViewOrderRoomId">
+            <key-property name="roomId" type="long">
+                <column name="ROOM_ID" />
+            </key-property>
+            <key-property name="roomName" type="string">
+                <column name="ROOM_NAME" length="50" />
+            </key-property>
+            <key-property name="orderDate" type="string">
+                <column name="ORDER_DATE" length="50" />
+            </key-property>
+            <key-property name="roomPosition" type="string">
+                <column name="ROOM_POSITION" length="4000" />
+            </key-property>
+            <key-property name="period" type="string">
+                <column name="PERIOD" length="4" />
+            </key-property>
+            <key-property name="orderName" type="string">
+                <column name="ORDER_NAME" length="50" />
+            </key-property>
+            <key-property name="mobilePhone" type="string">
+                <column name="MOBILE_PHONE" length="50" />
+            </key-property>
+            <key-property name="submitDatetime" type="timestamp">
+                <column name="SUBMIT_DATETIME" length="23" />
+            </key-property>
+            <key-property name="night" type="boolean">
+                <column name="NIGHT" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
